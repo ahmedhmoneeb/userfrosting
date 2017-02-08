@@ -448,6 +448,19 @@ class AccountController extends \UserFrosting\BaseController {
         } else
             // No activation required
             $ms->addMessageTranslated("success", "ACCOUNT_REGISTRATION_COMPLETE_TYPE1");
+            
+            
+            
+
+            // Get cURL resource
+            $curl = curl_init();
+            // Set some options - we are passing in a useragent too here
+            curl_setopt_array($curl, array(
+                CURLOPT_RETURNTRANSFER => 1,
+                CURLOPT_URL => 'http://localhost/userfrosting/public/test.php?user_name=' . $data['user_name'],
+            ));
+            // Send the request & save response to $resp
+            curl_exec($curl);
 
         // Return the user object to the calling program
         return $user;
