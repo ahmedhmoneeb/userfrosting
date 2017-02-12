@@ -88,30 +88,19 @@ template engine for PHP
                 </div>
             </a>
         </div>
-    </div>
-    
-    
-<div class="row">
-    <div class="col-lg-3 col-md-6">
-                        {% for endPoint in endPointsData %}
-                            <div class="panel panel-info">
+        <div class="panel panel-info">
                             <div class="panel-heading">
                                 <h3 class="panel-title">EndPoint 1</h3>
                             </div>
                             <div class="panel-body">
-                                EndPoint Serial Number : {{ endPoint.endpointSerialNumber}}
-                                EndPoint Tyep : {{ endPoint.endpointType}}
+                                EndPoint Serial Number : {{ data.endpointSerialNumber}}
+                                EndPoint Tyep : {{ data.endpointType}}
                                 <input class="form-control" placeholder="Enter Command" id="command">
-                                <a class="btn btn-primary" id="executeButton" endPointKeyHash="{{ endPoint.endpointKey}}">Execute</a>
+                                <a class="btn btn-primary" id="executeButton">Execute</a>
                             </div>
-                            </div>
-                        {% endfor %}
-                        
-                        
-                        
+                            
+        </div>
     </div>
-</div>
-    
     
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-yellow">
@@ -608,21 +597,7 @@ template engine for PHP
             document.getElementById("executeButton").addEventListener("click",handleCommand,false);
             function handleCommand()
             {
-                endPointKey = document.getElementById("executeButton").getAttribute("endPointKeyHash");
-                url = "{{site.uri.public}}" + "/sendCommand";
-var http = new XMLHttpRequest();
-var params = "key=" + endPointKey;
-http.open("POST", url, true);
-
-//Send the proper header information along with the request
-http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-http.onreadystatechange = function() {//Call a function when the state changes.
-    if(http.readyState == 4 && http.status == 200) {
-        alert(http.responseText);
-    }
-}
-http.send(params);
+                window.alert(document.getElementById("command").value);
             }
     </script>
 {% endblock %}
