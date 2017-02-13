@@ -93,6 +93,7 @@ template engine for PHP
     
 <div class="row">
     <div class="col-lg-3 col-md-6">
+                        <p id="endPointCounter" endPointCount = "{{endPointsData|length}}"></p>
                         {% for endPoint in endPointsData %}
                             <div class="panel panel-info">
                             <div class="panel-heading">
@@ -101,8 +102,8 @@ template engine for PHP
                             <div class="panel-body">
                                 EndPoint Serial Number : {{ endPoint.endpointSerialNumber}}
                                 EndPoint Tyep : {{ endPoint.endpointType}}
-                                <input class="form-control" placeholder="Enter Command" id="command">
-                                <a class="btn btn-primary" id="executeButton" endPointKeyHash="{{ endPoint.endpointKey}}">Execute</a>
+                                <input class="form-control" placeholder="Enter Command" id="command{{ loop.index }}">
+                                <a class="btn btn-primary" id="executeButton{{ loop.index }}" endPointKeyHash="{{ endPoint.endpointKey}}">Execute</a>
                             </div>
                             </div>
                         {% endfor %}
@@ -605,24 +606,25 @@ template engine for PHP
     <script src="{{site.uri.js}}/morris-data.js"></script>
     <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
     <script>
-            document.getElementById("executeButton").addEventListener("click",handleCommand,false);
-            function handleCommand()
-            {
-                endPointKey = document.getElementById("executeButton").getAttribute("endPointKeyHash");
-                url = "{{site.uri.public}}" + "/sendCommand";
-var http = new XMLHttpRequest();
-var params = "key=" + endPointKey;
-http.open("POST", url, true);
-
-//Send the proper header information along with the request
-http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-http.onreadystatechange = function() {//Call a function when the state changes.
+            {% for endPoint in endPointsData %}
+                document.getElementById("executeButton{{ loop.index }}").addEventListener("click",function() { 
+               var endPointKey = document.getElementById("executeButton{{ loop.index }}").getAttribute("endPointKeyHash");
+                var message = document.getElementById("command{{ loop.index }}").value;
+                    var http = new XMLHttpRequest();
+                    var url = "{{site.uri.public}}/sendNotification.php";
+                    var params = "message=" + message + "&endpointKeyHash=" + endPointKey;
+                    http.open("POST", url, true);
+                    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    http.onreadystatechange = function() {//Call a function when the state changes.
     if(http.readyState == 4 && http.status == 200) {
-        alert(http.responseText);
+        alert("Command Sent Successfully!!");
     }
 }
 http.send(params);
-            }
+                       
+                       
+                       },false);
+            {% endfor %}
+
     </script>
 {% endblock %}
