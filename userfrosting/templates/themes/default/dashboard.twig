@@ -107,9 +107,18 @@ template engine for PHP
                             </div>
                             </div>
                         {% endfor %}
-                        
-                        
-                        
+    </div>
+    <div class="col-lg-3 col-md-6">
+                            <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Add a Device</h3>
+                            </div>
+                            <div class="panel-body">
+                                Enter the device's Serial Number
+                                <input class="form-control" placeholder="Serial Number" id="deviceSerialNumber">
+                                <button class="btn btn-success" id="addDeviceButton">Add</button>
+                            </div>
+                            </div>
     </div>
 </div>
     
@@ -625,6 +634,15 @@ http.send(params);
                        
                        },false);
             {% endfor %}
+
+document.getElementById("addDeviceButton").addEventListener("click",addDevice);
+
+function addDevice()
+{
+    var message = document.getElementById("deviceSerialNumber").value;
+    window.alert(message);
+}
+
 
     </script>
 {% endblock %}
