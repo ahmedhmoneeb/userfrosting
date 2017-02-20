@@ -97,7 +97,7 @@ template engine for PHP
                         {% for endPoint in endPointsData %}
                             <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h3 class="panel-title">EndPoint 1</h3>
+                                <h3 class="panel-title">EndPoint {{ loop.index }}</h3>
                             </div>
                             <div class="panel-body">
                                 EndPoint Serial Number : {{ endPoint.endpointSerialNumber}}
@@ -621,7 +621,7 @@ template engine for PHP
                 var message = document.getElementById("command{{ loop.index }}").value;
                     var http = new XMLHttpRequest();
                     var url = "{{site.uri.public}}/sendNotification.php";
-                    var params = "message=" + message + "&endpointKeyHash=" + endPointKey;
+                    var params = "message=" + message + "&endpointKeyHash=" + endPointKey + "&user_name={{userName}}";
                     http.open("POST", url, true);
                     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     http.onreadystatechange = function() {//Call a function when the state changes.
@@ -639,10 +639,49 @@ document.getElementById("addDeviceButton").addEventListener("click",addDevice);
 
 function addDevice()
 {
-    var message = document.getElementById("deviceSerialNumber").value;
-    window.alert(message);
+    var serialNumber = document.getElementById("deviceSerialNumber").value;
+    
+    url = "{{site.uri.public}}/checkEndPoint.php" + "?serial_num=" + serialNumber;
+		try
+		{
+			ob=new XMLHttpRequest();
+			ob.open("GET",url,true);
+			ob.addEventListener("readystatechange",processResponse);
+			ob.send();
+		}
+		catch(exception)
+		{
+			alert("Request Failed")
+		}
+		
+	function processResponse()
+    {
+    	if(ob.readyState==4)
+    	{
+    		resp = ob.responseText;
+    		if (resp == 0)
+    		{
+    		    window.alert("error");
+    		}
+    		else
+    		{
+    		    //window.alert('{{userName}} ' + resp);
+    		    var http = new XMLHttpRequest();
+                var url = "{{site.uri.public}}/createSDK.php";
+                var params = "user_name={{userName}}"+ "&endPointInfo=" + resp;
+                http.open("POST", url, true);
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                http.onreadystatechange = function() 
+                    {//Call a function when the state changes.
+                        if(http.readyState == 4 && http.status == 200) 
+                        {
+                            //window.alert("Info Sent Successfully");
+                        }
+    		        }
+    		    http.send(params);
+    	    }
+        }
+    }
 }
-
-
     </script>
 {% endblock %}

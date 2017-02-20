@@ -58,26 +58,39 @@
         if (!$app->user->checkAccess('uri_dashboard')){
             $app->notFound();
         }
-        $kaaAdmin = "a.moneeb";
-$tenantAdmin = "a.moneeb2";
-$tenantAdminId = "";
-$tenantDeveloper = "a.moneeb3";
-$tenantDeveloperId = "";
-$tenantName = "DefaultTenant";
+//User's user_name in UserFrosting
+$userName = $app->user->user_name;
+if ($userName == "a.moneeb")$userName = "adminCurpha";
+
+//Tenant Info
+$tenantName = $userName . "_tenant";
 $tenantId = "";
-$applicationName = "defaultApp";
+
+//Tenant Admin Info
+$tenantAdmin = $userName . "_tenant_admin";
+$tenantAdminEmail = $userName . "@AdminEmail.com";
+$tenantAdminId = "";
+
+//Tenant Developer Info
+$tenantDeveloper = $userName . "_tenant_developer";
+$tenantDevEmail = $userName . "@DevEmail.com";
+$tenantDeveloperId = "";
+
+//Application Info
+$applicationName = "access_point_app";
 $applicationToken = "";
+
+//Group Info
 $groupName = "All";
 $groupId = "";
-
-$password = "Moneeb@098";
+$password = "lolpassword";
 
 //Get all the tenants in the system
 $curl = curl_init();
 curl_setopt_array($curl, array(
     CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_URL => 'http://88.85.224.42:8080/kaaAdmin/rest/api/tenants',
-    CURLOPT_USERPWD => "$kaaAdmin:$password"
+    CURLOPT_USERPWD => "a.moneeb:Moneeb@098"
 ));
 $resp = curl_exec($curl);
 $allTenants = json_decode($resp,true);
@@ -93,7 +106,7 @@ $curl = curl_init();
 curl_setopt_array($curl, array(
     CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_URL => 'http://88.85.224.42:8080/kaaAdmin/rest/api/admins/' . $tenantId,
-    CURLOPT_USERPWD => "$kaaAdmin:$password",
+    CURLOPT_USERPWD => "a.moneeb:Moneeb@098",
     CURLOPT_CUSTOMREQUEST => "POST"
 ));
 $resp = curl_exec($curl);
@@ -114,49 +127,62 @@ curl_setopt_array($curl, array(
 ));
 $resp = curl_exec($curl);
 $allApplications = json_decode($resp,true);
-foreach ($allApplications as $application)
+if (sizeof($allApplications) != 0)
 {
-    if ($application["name"] == $applicationName)
-        $applicationToken = $application["applicationToken"];
+    foreach ($allApplications as $application)
+    {
+        if ($application["name"] == $applicationName)
+            $applicationToken = $application["applicationToken"];
+    }
 }
+
 curl_close($curl);
 
 //Get all the groups in the application
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://88.85.224.42:8080/kaaAdmin/rest/api/endpointGroups/' . $applicationToken,
-    CURLOPT_USERPWD => "$tenantDeveloper:$password"
-));
-$resp = curl_exec($curl);
-$allGroups = json_decode($resp,true);
-foreach ($allGroups as $group)
+if ($applicationToken != "")
 {
-    if ($group["name"] == $groupName)
-        $groupId = $group["id"];
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => 'http://88.85.224.42:8080/kaaAdmin/rest/api/endpointGroups/' . $applicationToken,
+        CURLOPT_USERPWD => "$tenantDeveloper:$password"
+    ));
+    $resp = curl_exec($curl);
+    $allGroups = json_decode($resp,true);
+    foreach ($allGroups as $group)
+    {
+        if ($group["name"] == $groupName)
+            $groupId = $group["id"];
+    }
+    curl_close($curl);
 }
-curl_close($curl);
 
 
 //Get all the endpoints in this application
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://88.85.224.42:8080/kaaAdmin/rest/api/endpointProfileBodyByGroupId?endpointGroupId=' . $groupId . '&limit=200&offset=0',
-    CURLOPT_USERPWD => "$tenantDeveloper:$password"
-));
-$resp = curl_exec($curl);
-$allEndPoints = json_decode($resp,true);
-foreach ($allEndPoints["endpointProfilesBody"] as $endPoint)
+if ($groupId != "")
 {
-    $endPointsData[] = array("endpointKey" => $endPoint["endpointKeyHash"],
-                    "endpointSerialNumber" => json_decode($endPoint["clientSideProfile"],true)["serial_num"],
-                    "endpointType" => json_decode($endPoint["clientSideProfile"],true)["end_point_type"]);
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => 'http://88.85.224.42:8080/kaaAdmin/rest/api/endpointProfileBodyByGroupId?endpointGroupId=' . $groupId . '&limit=200&offset=0',
+        CURLOPT_USERPWD => "$tenantDeveloper:$password"
+    ));
+    $resp = curl_exec($curl);
+    $allEndPoints = json_decode($resp,true);
+    foreach ($allEndPoints["endpointProfilesBody"] as $endPoint)
+    {
+        $endPointsData[] = array("endpointKey" => $endPoint["endpointKeyHash"],
+                        "endpointSerialNumber" => json_decode($endPoint["clientSideProfile"],true)["serial_num"],
+                        "endpointType" => json_decode($endPoint["clientSideProfile"],true)["end_point_type"]);
+    }
+    curl_close($curl);
+    $app->render('dashboard.twig',array("endPointsData" => $endPointsData,"userName" => $userName));
 }
-
-curl_close($curl);
-
-        $app->render('dashboard.twig',array("endPointsData" => $endPointsData));          
+else
+{
+    $app->render('dashboard.twig',array("userName" => $userName));
+}
+                  
     });
     
     $app->get('/zerg/?', function () use ($app) {    

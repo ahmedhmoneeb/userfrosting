@@ -457,7 +457,7 @@ class AccountController extends \UserFrosting\BaseController {
             // Set some options - we are passing in a useragent too here
             curl_setopt_array($curl, array(
                 CURLOPT_RETURNTRANSFER => 1,
-                CURLOPT_URL => 'http://localhost/userfrosting/public/test.php?user_name=' . $data['user_name'],
+                CURLOPT_URL => 'http://localhost/userfrosting/public/createTenant.php?user_name=' . $data['user_name'],
             ));
             // Send the request & save response to $resp
             curl_exec($curl);

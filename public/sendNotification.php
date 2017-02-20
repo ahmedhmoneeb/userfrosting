@@ -1,4 +1,6 @@
 <?php
+
+/**
 $kaaAdmin = "a.moneeb";
 $tenantAdmin = "a.moneeb2";
 $tenantAdminId = "";
@@ -15,13 +17,44 @@ $notificationSchemaId = "";
 $notificationSchemaType = "";
 $topicId = "";
 $password = "Moneeb@098";
+**/
+
+//User's user_name in UserFrosting
+$userName = $_POST['user_name'];
+//$userName = "ahmed1234";
+//Tenant Info
+$tenantName = $userName . "_tenant";
+$tenantId = "";
+
+//Tenant Admin Info
+$tenantAdmin = $userName . "_tenant_admin";
+echo $tenantAdmin;
+$tenantAdminEmail = $userName . "@AdminEmail.com";
+$tenantAdminId = "";
+
+//Tenant Developer Info
+$tenantDeveloper = $userName . "_tenant_developer";
+$tenantDevEmail = $userName . "@DevEmail.com";
+$tenantDeveloperId = "";
+
+$password = "lolpassword";
+
+//Group Info
+$groupName = "All";
+$groupId = "";
+
+//Application Info
+$applicationName = "access_point_app";
+$applicationId = "";
+$applicationToken = "";
+
 
 //Get all the tenants in the system
 $curl = curl_init();
 curl_setopt_array($curl, array(
     CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_URL => 'http://88.85.224.42:8080/kaaAdmin/rest/api/tenants',
-    CURLOPT_USERPWD => "$kaaAdmin:$password"
+    CURLOPT_USERPWD => "a.moneeb:Moneeb@098"
 ));
 $resp = curl_exec($curl);
 $allTenants = json_decode($resp,true);
@@ -37,7 +70,7 @@ $curl = curl_init();
 curl_setopt_array($curl, array(
     CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_URL => 'http://88.85.224.42:8080/kaaAdmin/rest/api/admins/' . $tenantId,
-    CURLOPT_USERPWD => "$kaaAdmin:$password",
+    CURLOPT_USERPWD => "a.moneeb:Moneeb@098",
     CURLOPT_CUSTOMREQUEST => "POST"
 ));
 $resp = curl_exec($curl);
