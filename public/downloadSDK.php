@@ -202,4 +202,7 @@ shell_exec($command);
 $command = "cd tmp/" . $tenantDeveloper . "/; ./integrate.sh";
 shell_exec($command);
 
+$command = "mv /var/www/html/downloads/kaaSDK.ipk /var/www/html/downloads/" . $tenantDeveloper . ".ipk";
+shell_exec($command);
+
 ?>
