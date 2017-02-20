@@ -337,7 +337,27 @@ $data = array("tenantDeveloper" => $tenantDeveloper,
 
 curl_setopt_array($curl, array(
     CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'downloadSDK.php',
+    CURLOPT_URL => 'http://10.0.0.19/downloadSDK.php',
+    CURLOPT_CUSTOMREQUEST => "POST",
+    CURLOPT_POSTFIELDS => $data
+));
+$resp = curl_exec($curl);
+echo $resp;
+curl_close($curl);
+
+//Get the new SDK
+$command = "cd downloads/ ; wget http://10.0.0.19/downloads/" . $tenantDeveloper . ".ipk";
+shell_exec($command);
+
+//Send commands to the endpoint to download the new sdk
+$curl = curl_init();
+$data = array("user_name" => "adminCurpha",
+                "message" => "wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . " ; kaaSDK &",
+                "endpointKeyHash" => $endPointKeyHash);
+
+curl_setopt_array($curl, array(
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_URL => 'http://10.0.0.27/userfrosting/public/sendNotification.php',
     CURLOPT_CUSTOMREQUEST => "POST",
     CURLOPT_POSTFIELDS => $data
 ));

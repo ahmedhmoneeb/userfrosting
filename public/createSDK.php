@@ -352,7 +352,7 @@ shell_exec($command);
 //Send commands to the endpoint to download the new sdk
 $curl = curl_init();
 $data = array("user_name" => "adminCurpha",
-                "message" => "wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . " ; kaaSDK &",
+                "message" => "wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . ".ipk ; kaaSDK &",
                 "endpointKeyHash" => $endPointKeyHash);
 
 curl_setopt_array($curl, array(
