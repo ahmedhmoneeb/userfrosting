@@ -1,687 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flat Admin V.3 - Free flat-design bootstrap administrator templates</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% extends "layouts/layout-dashboard.twig" %}
-{% set page_group = "dashboard" %}
+  <link rel="stylesheet" type="text/css" href="css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="css/flat-admin.css">
 
-{# Set page properties (page.*) here. #}
-{% block page %}
-    {# By putting this in a special block, we ensure that it will be set AFTER the default values are set in the parent template, 
-    but BEFORE the page itself is rendered. #}    
-    {% set page = page | merge({
-        "title"       : "Dashboard",
-        "description" : "Your user dashboard."
-    }) %}
-    {{ parent() }}
-{% endblock %}
+  <!-- Theme -->
+  <link rel="stylesheet" type="text/css" href="css/theme/blue-sky.css">
+  <link rel="stylesheet" type="text/css" href="css/theme/blue.css">
+  <link rel="stylesheet" type="text/css" href="css/theme/red.css">
+  <link rel="stylesheet" type="text/css" href="css/theme/yellow.css">
 
-{% block content %}
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">Dashboard</h1>
-    </div>
-    <!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-<div class="row">
-    <div class="col-lg-12">            
-        <div class="alert alert-success alert-dismissable">
-          <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          Welcome to {{site.site_title}}!  The dashboard and admin account features are based on the SB Admin 2 template by <a class="alert-link" href="http://startbootstrap.com">Start Bootstrap</a>. Other key frameworks and plugins used in this system are:
-          <br><a class="alert-link" href='http://www.slimframework.com/'>Slim</a>: a microframework for PHP
-          <br><a class="alert-link" href='http://twig.sensiolabs.org/'>Twig</a>: The flexible, fast, and secure
-template engine for PHP
-          <br><a class="alert-link" href='http://http://laravel.com/docs/5.1/eloquent/'>Eloquent</a>: Laravel's ORM
-          <br><a class="alert-link" href='http://http://jquery.com/'>jQuery 1.11.2</a>
-          <br><a class="alert-link" href='http://getbootstrap.com/'>Twitter Bootstrap 3.3.2</a>
-          <br><a class="alert-link" href='http://handlebarsjs.com/'>Handlebars</a>: Minimal templating on steroids
-          <br><a class="alert-link" href='http://fontawesome.io/'>Font Awesome</a>
-          <br><a class="alert-link" href='http://jqueryvalidation.org'>jQuery Validation</a>: Form validation with jQuery
-          <br><a class="alert-link" href='http://tablesorter.com/docs/'>Tablesorter 2.23.4</a>: sortable, searchable tables
-          <br><a class="alert-link" href='http://momentjs.com/'>Moment.js</a>: Parse, validate, manipulate, and display dates in JavaScript
-          <br>The <a class="alert-link" href='http://www.bootstrap-switch.org/'>Bootstrap Switch</a> component by Mattia Larentis,Peter Stein, and Emanuele Marchi
-          <br><a class="alert-link" href="https://select2.github.io/">Select2</a>: the jQuery replacement for search boxes
-          <br>All components are copyright of their respective creators.
+</head>
+<body>
+  <div class="app app-default">
+
+<aside class="app-sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="sidebar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
+    <button type="button" class="sidebar-toggle">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="sidebar-menu">
+    <ul class="sidebar-nav">
+      <li class="active">
+        <a href="./index.html">
+          <div class="icon">
+            <i class="fa fa-tasks" aria-hidden="true"></i>
+          </div>
+          <div class="title">Dashboard</div>
+        </a>
+      </li>
+      <li class="@@menu.messaging">
+        <a href="./messaging.html">
+          <div class="icon">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+          </div>
+          <div class="title">Messaging</div>
+        </a>
+      </li>
+      <li class="dropdown ">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <div class="icon">
+            <i class="fa fa-cube" aria-hidden="true"></i>
+          </div>
+          <div class="title">UI Kits</div>
+        </a>
+        <div class="dropdown-menu">
+          <ul>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> UI Kits</li>
+            <li><a href="./uikits/customize.html">Customize</a></li>
+            <li><a href="./uikits/components.html">Components</a></li>
+            <li><a href="./uikits/card.html">Card</a></li>
+            <li><a href="./uikits/form.html">Form</a></li>
+            <li><a href="./uikits/table.html">Table</a></li>
+            <li><a href="./uikits/icons.html">Icons</a></li>
+            <li class="line"></li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Advanced Components</li>
+            <li><a href="./uikits/pricing-table.html">Pricing Table</a></li>
+            <!-- <li><a href="./uikits/timeline.html">Timeline</a></li> -->
+            <li><a href="./uikits/chart.html">Chart</a></li>
+          </ul>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-comments fa-5x"></i>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <div class="icon">
+            <i class="fa fa-file-o" aria-hidden="true"></i>
+          </div>
+          <div class="title">Pages</div>
+        </a>
+        <div class="dropdown-menu">
+          <ul>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Admin</li>
+            <li><a href="./pages/form.html">Form</a></li>
+            <li><a href="./pages/profile.html">Profile</a></li>
+            <li><a href="./pages/search.html">Search</a></li>
+            <li class="line"></li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Landing</li>
+            <!-- <li><a href="./pages/landing.html">Landing</a></li> -->
+            <li><a href="./pages/login.html">Login</a></li>
+            <li><a href="./pages/register.html">Register</a></li>
+            <!-- <li><a href="./pages/404.html">404</a></li> -->
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="sidebar-footer">
+    <ul class="menu">
+      <li>
+        <a href="/" class="dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-cogs" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li><a href="#"><span class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>
+    </ul>
+  </div>
+</aside>
+
+<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
+  <div class="dropdown-background">
+    <div class="bg"></div>
+  </div>
+  <div class="dropdown-container">
+    {{list}}
+  </div>
+</script>
+<div class="app-container">
+
+  <nav class="navbar navbar-default" id="navbar">
+  <div class="container-fluid">
+    <div class="navbar-collapse collapse in">
+      <ul class="nav navbar-nav navbar-mobile">
+        <li>
+          <button type="button" class="sidebar-toggle">
+            <i class="fa fa-bars"></i>
+          </button>
+        </li>
+        <li class="logo">
+          <a class="navbar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
+        </li>
+        <li>
+          <button type="button" class="navbar-toggle">
+            <img class="profile-img" src="images/profile.png">
+          </button>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="navbar-title">Dashboard for {{userName}}</li>
+        <li class="navbar-search hidden-sm">
+          <input id="search" type="text" placeholder="Search..">
+          <button class="btn-search"><i class="fa fa-search"></i></button>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown notification">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <div class="icon"><i class="fa fa-shopping-basket" aria-hidden="true"></i></div>
+            <div class="title">New Orders</div>
+            <div class="count">0</div>
+          </a>
+          <div class="dropdown-menu">
+            <ul>
+              <li class="dropdown-header">Ordering</li>
+              <li class="dropdown-empty">No New Ordered</li>
+              <li class="dropdown-footer">
+                <a href="#">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="dropdown notification warning">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <div class="icon"><i class="fa fa-comments" aria-hidden="true"></i></div>
+            <div class="title">Unread Messages</div>
+            <div class="count">99</div>
+          </a>
+          <div class="dropdown-menu">
+            <ul>
+              <li class="dropdown-header">Message</li>
+              <li>
+                <a href="#">
+                  <span class="badge badge-warning pull-right">10</span>
+                  <div class="message">
+                    <img class="profile" src="https://placehold.it/100x100">
+                    <div class="content">
+                      <div class="title">"Payment Confirmation.."</div>
+                      <div class="description">Alan Anderson</div>
                     </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">26</div>
-                        <div>New Comments!  test </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="badge badge-warning pull-right">5</span>
+                  <div class="message">
+                    <img class="profile" src="https://placehold.it/100x100">
+                    <div class="content">
+                      <div class="title">"Hello World"</div>
+                      <div class="description">Marco  Harmon</div>
                     </div>
-                </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="badge badge-warning pull-right">2</span>
+                  <div class="message">
+                    <img class="profile" src="https://placehold.it/100x100">
+                    <div class="content">
+                      <div class="title">"Order Confirmation.."</div>
+                      <div class="description">Brenda Lawson</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="dropdown-footer">
+                <a href="#">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="dropdown notification danger">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <div class="icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
+            <div class="title">System Notifications</div>
+            <div class="count">10</div>
+          </a>
+          <div class="dropdown-menu">
+            <ul>
+              <li class="dropdown-header">Notification</li>
+              <li>
+                <a href="#">
+                  <span class="badge badge-danger pull-right">8</span>
+                  <div class="message">
+                    <div class="content">
+                      <div class="title">New Order</div>
+                      <div class="description">$400 total</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="badge badge-danger pull-right">14</span>
+                  Inbox
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="badge badge-danger pull-right">5</span>
+                  Issues Report
+                </a>
+              </li>
+              <li class="dropdown-footer">
+                <a href="#">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="dropdown profile">
+          <a href="/html/pages/profile.html" class="dropdown-toggle"  data-toggle="dropdown">
+            <img class="profile-img" src="images/profile.png">
+            <div class="title">Profile</div>
+          </a>
+          <div class="dropdown-menu">
+            <div class="profile-info">
+              <h4 class="username">Scott White</h4>
             </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
+            <ul class="action">
+              <li>
+                <a href="#">
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="badge badge-danger pull-right">5</span>
+                  My Inbox
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Setting
+                </a>
+              </li>
+              <li>
+                <a href="{{site.uri.public}}/account/logout">
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <div class="btn-floating" id="help-actions">
+  <div class="btn-bg"></div>
+  <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
+    <i class="icon fa fa-plus"></i>
+    <span class="help-text">Shortcut</span>
+  </button>
+  <div class="toggle-content">
+    <ul class="actions">
+      <li><a href="#">Website</a></li>
+      <li><a href="#">Documentation</a></li>
+      <li><a href="#">Issues</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="card card-banner card-chart card-green no-br">
+      <div class="card-header">
+        <div class="card-title">
+          <div class="title">Top Sale Today</div>
+        </div>
+        <ul class="card-action">
+          <li>
+            <a href="/">
+              <i class="fa fa-refresh"></i>
             </a>
-        </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="ct-chart-sale"></div>
+      </div>
     </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-green">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-tasks fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
-                        <div>New Tasks!</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    
-    
+  </div>
+</div>
 <div class="row">
-    <div class="col-lg-3 col-md-6">
-                        <p id="endPointCounter" endPointCount = "{{endPointsData|length}}"></p>
-                        {% for endPoint in endPointsData %}
-                            <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">EndPoint {{ loop.index }}</h3>
-                            </div>
-                            <div class="panel-body">
-                                EndPoint Serial Number : {{ endPoint.endpointSerialNumber}}
-                                EndPoint Tyep : {{ endPoint.endpointType}}
-                                <input class="form-control" placeholder="Enter Command" id="command{{ loop.index }}">
-                                <a class="btn btn-primary" id="executeButton{{ loop.index }}" endPointKeyHash="{{ endPoint.endpointKey}}">Execute</a>
-                            </div>
-                            </div>
-                        {% endfor %}
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+      <a class="card card-banner card-green-light">
+  <div class="card-body">
+    <i class="icon fa fa-shopping-basket fa-4x"></i>
+    <div class="content">
+      <div class="title">Sale Today</div>
+      <div class="value"><span class="sign">$</span>420</div>
     </div>
-    <div class="col-lg-3 col-md-6">
-                            <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Add a Device</h3>
-                            </div>
-                            <div class="panel-body">
-                                Enter the device's Serial Number
-                                <input class="form-control" placeholder="Serial Number" id="deviceSerialNumber">
-                                <button class="btn btn-success" id="addDeviceButton">Add</button>
-                            </div>
-                            </div>
+  </div>
+</a>
+
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+      <a class="card card-banner card-blue-light">
+  <div class="card-body">
+    <i class="icon fa fa-thumbs-o-up fa-4x"></i>
+    <div class="content">
+      <div class="title">Page Likes</div>
+      <div class="value"><span class="sign"></span>2453</div>
     </div>
+  </div>
+</a>
+
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+      <a class="card card-banner card-yellow-light">
+  <div class="card-body">
+    <i class="icon fa fa-user-plus fa-4x"></i>
+    <div class="content">
+      <div class="title">New Registration</div>
+      <div class="value"><span class="sign"></span>50</div>
+    </div>
+  </div>
+</a>
+
+  </div>
 </div>
-    
-    
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-yellow">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-shopping-cart fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">124</div>
-                        <div>New Orders!</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-red">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-support fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">13</div>
-                        <div>Support Tickets!</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-<!-- /.row -->
+
 <div class="row">
-    <div class="col-lg-8">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                <div class="pull-right">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                            Actions
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu pull-right" role="menu">
-                            <li><a href="#">Action</a>
-                            </li>
-                            <li><a href="#">Another action</a>
-                            </li>
-                            <li><a href="#">Something else here</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div id="morris-area-chart"></div>
-            </div>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
-                <div class="pull-right">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                            Actions
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu pull-right" role="menu">
-                            <li><a href="#">Action</a>
-                            </li>
-                            <li><a href="#">Another action</a>
-                            </li>
-                            <li><a href="#">Something else here</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>3326</td>
-                                        <td>10/21/2013</td>
-                                        <td>3:29 PM</td>
-                                        <td>$321.33</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3325</td>
-                                        <td>10/21/2013</td>
-                                        <td>3:20 PM</td>
-                                        <td>$234.34</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3324</td>
-                                        <td>10/21/2013</td>
-                                        <td>3:03 PM</td>
-                                        <td>$724.17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3323</td>
-                                        <td>10/21/2013</td>
-                                        <td>3:00 PM</td>
-                                        <td>$23.71</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3322</td>
-                                        <td>10/21/2013</td>
-                                        <td>2:49 PM</td>
-                                        <td>$8345.23</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3321</td>
-                                        <td>10/21/2013</td>
-                                        <td>2:23 PM</td>
-                                        <td>$245.12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3320</td>
-                                        <td>10/21/2013</td>
-                                        <td>2:15 PM</td>
-                                        <td>$5663.54</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3319</td>
-                                        <td>10/21/2013</td>
-                                        <td>2:13 PM</td>
-                                        <td>$943.45</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.table-responsive -->
-                    </div>
-                    <!-- /.col-lg-4 (nested) -->
-                    <div class="col-lg-8">
-                        <div id="morris-bar-chart"></div>
-                    </div>
-                    <!-- /.col-lg-8 (nested) -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-badge"><i class="fa fa-check"></i>
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-                                </p>
-                            </div>
-                            <div class="timeline-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates est quaerat asperiores sapiente, eligendi, nihil. Itaque quos, alias sapiente rerum quas odit! Aperiam officiis quidem delectus libero, omnis ut debitis!</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-badge info"><i class="fa fa-save"></i>
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>
-                                <hr>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-gear"></i>  <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fuga odio quibusdam. Iure expedita, incidunt unde quis nam! Quod, quisquam. Officia quam qui adipisci quas consequuntur nostrum sequi. Consequuntur, commodi.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card card-mini">
+      <div class="card-header">
+        <div class="card-title">Last Statuses</div>
+        <ul class="card-action">
+          <li>
+            <a href="/">
+              <i class="fa fa-refresh"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body no-padding table-responsive">
+        <table class="table card-table">
+          <thead>
+            <tr>
+              <th>Products</th>
+              <th class="right">Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>MicroSD 64Gb</td>
+              <td class="right">12</td>
+              <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Complete</span></span></td>
+            </tr>
+            <tr>
+              <td>MiniPC i5</td>
+              <td class="right">5</td>
+              <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Pending</span></span></td>
+            </tr>
+            <tr>
+              <td>Mountain Bike</td>
+              <td class="right">1</td>
+              <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
+            </tr>
+            <tr>
+              <td>Notebook</td>
+              <td class="right">10</td>
+              <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Cancelled</span></span></td>
+            </tr>
+            <tr>
+              <td>Raspberry Pi2</td>
+              <td class="right">6</td>
+              <td><span class="badge badge-primary badge-icon"><i class="fa fa-truck" aria-hidden="true"></i><span>Shipped</span></span></td>
+            </tr>
+            <tr>
+              <td>Flashdrive 128Mb</td>
+              <td class="right">40</td>
+              <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <!-- /.col-lg-8 -->
-    <div class="col-lg-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-bell fa-fw"></i> Notifications Panel
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="card card-tab card-mini">
+      <div class="card-header">
+        <ul class="nav nav-tabs tab-stats">
+          <li role="tab1" class="active">
+            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Browsers</a>
+          </li>
+          <li role="tab2">
+            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">OS</a>
+          </li>
+          <li role="tab2">
+            <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">More</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tab1">
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="chart ct-chart-browser ct-perfect-fourth"></div>
             </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-comment fa-fw"></i> New Comment
-                        <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                        </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                        <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                        </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-envelope fa-fw"></i> Message Sent
-                        <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                        </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-tasks fa-fw"></i> New Task
-                        <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                        </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                        <span class="pull-right text-muted small"><em>11:32 AM</em>
-                        </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                        <span class="pull-right text-muted small"><em>11:13 AM</em>
-                        </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                        <span class="pull-right text-muted small"><em>10:57 AM</em>
-                        </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                        <span class="pull-right text-muted small"><em>9:49 AM</em>
-                        </span>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <i class="fa fa-money fa-fw"></i> Payment Received
-                        <span class="pull-right text-muted small"><em>Yesterday</em>
-                        </span>
-                    </a>
-                </div>
-                <!-- /.list-group -->
-                <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+            <div class="col-sm-4">
+              <ul class="chart-label">
+                <li class="ct-label ct-series-a">Google Chrome</li>
+                <li class="ct-label ct-series-b">Firefox</li>
+                <li class="ct-label ct-series-c">Safari</li>
+                <li class="ct-label ct-series-d">IE</li>
+                <li class="ct-label ct-series-e">Opera</li>
+              </ul>
             </div>
-            <!-- /.panel-body -->
+          </div>
         </div>
-        <!-- /.panel -->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
+        <div role="tabpanel" class="tab-pane" id="tab2">
+          <div class="row">
+            <div class="col-sm-8">
+              <div class="chart ct-chart-os ct-perfect-fourth"></div>
             </div>
-            <div class="panel-body">
-                <div id="morris-donut-chart"></div>
-                <a href="#" class="btn btn-default btn-block">View Details</a>
+            <div class="col-sm-4">
+              <ul class="chart-label">
+                <li class="ct-label ct-series-a">iOS</li>
+                <li class="ct-label ct-series-b">Android</li>
+                <li class="ct-label ct-series-c">Windows</li>
+                <li class="ct-label ct-series-d">OSX</li>
+                <li class="ct-label ct-series-e">Linux</li>
+              </ul>
             </div>
-            <!-- /.panel-body -->
+          </div>
         </div>
-        <!-- /.panel -->
-        <div class="chat-panel panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-comments fa-fw"></i>
-                Chat
-                <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-chevron-down"></i>
-                    </button>
-                    <ul class="dropdown-menu slidedown">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-refresh fa-fw"></i> Refresh
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-check-circle fa-fw"></i> Available
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-times fa-fw"></i> Busy
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-clock-o fa-fw"></i> Away
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-sign-out fa-fw"></i> Sign Out
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <ul class="chat">
-                    <li class="left clearfix">
-                        <span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <strong class="primary-font">Jack Sparrow</strong>
-                                <small class="pull-right text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
-                                </small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                    <li class="right clearfix">
-                        <span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <small class=" text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
-                                <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                    <li class="left clearfix">
-                        <span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <strong class="primary-font">Jack Sparrow</strong>
-                                <small class="pull-right text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                    <li class="right clearfix">
-                        <span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <small class=" text-muted">
-                                    <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
-                                <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.panel-body -->
-            <div class="panel-footer">
-                <div class="input-group">
-                    <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                    <span class="input-group-btn">
-                        <button class="btn btn-warning btn-sm" id="btn-chat">
-                            Send
-                        </button>
-                    </span>
-                </div>
-            </div>
-            <!-- /.panel-footer -->
+        <div role="tabpanel" class="tab-pane" id="tab3">
         </div>
-        <!-- /.panel .chat-panel -->
+      </div>
     </div>
-    <!-- /.col-lg-4 -->
+  </div>
 </div>
-<!-- /.row -->
-{% endblock %}
-{% block page_scripts %}
-    <script src="{{site.uri.js}}/morris-data.js"></script>
-    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
-    <script>
-            {% for endPoint in endPointsData %}
-                document.getElementById("executeButton{{ loop.index }}").addEventListener("click",function() { 
-               var endPointKey = document.getElementById("executeButton{{ loop.index }}").getAttribute("endPointKeyHash");
-                var message = document.getElementById("command{{ loop.index }}").value;
-                    var http = new XMLHttpRequest();
-                    var url = "{{site.uri.public}}/sendNotification.php";
-                    var params = "message=" + message + "&endpointKeyHash=" + endPointKey + "&user_name={{userName}}";
-                    http.open("POST", url, true);
-                    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    http.onreadystatechange = function() {//Call a function when the state changes.
-    if(http.readyState == 4 && http.status == 200) {
-        alert("Command Sent Successfully!!");
-    }
-}
-http.send(params);
-                       
-                       
-                       },false);
-            {% endfor %}
+  <footer class="app-footer"> 
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="footer-copyright">
+        Copyright © 2016 Company Co,Ltd.
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
 
-document.getElementById("addDeviceButton").addEventListener("click",addDevice);
+  </div>
+  
+  <script type="text/javascript" src="js/vendor.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
 
-function addDevice()
-{
-    var serialNumber = document.getElementById("deviceSerialNumber").value;
-    
-    url = "{{site.uri.public}}/checkEndPoint.php" + "?serial_num=" + serialNumber;
-		try
-		{
-			ob=new XMLHttpRequest();
-			ob.open("GET",url,true);
-			ob.addEventListener("readystatechange",processResponse);
-			ob.send();
-		}
-		catch(exception)
-		{
-			alert("Request Failed")
-		}
-		
-	function processResponse()
-    {
-    	if(ob.readyState==4)
-    	{
-    		resp = ob.responseText;
-    		if (resp == 0)
-    		{
-    		    window.alert("error");
-    		}
-    		else
-    		{
-    		    //window.alert('{{userName}} ' + resp);
-    		    var http = new XMLHttpRequest();
-                var url = "{{site.uri.public}}/createSDK.php";
-                var params = "user_name={{userName}}"+ "&endPointInfo=" + resp;
-                http.open("POST", url, true);
-                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                http.onreadystatechange = function() 
-                    {//Call a function when the state changes.
-                        if(http.readyState == 4 && http.status == 200) 
-                        {
-                            //window.alert("Info Sent Successfully");
-                        }
-    		        }
-    		    http.send(params);
-    	    }
-        }
-    }
-}
-    </script>
-{% endblock %}
+</body>
+</html>
