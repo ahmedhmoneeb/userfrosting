@@ -18,14 +18,16 @@
         <meta name="description" content="{{ page.description }}">
         <meta name="author" content="{{ page.author }}">
         <meta name="{{csrf_key}}" content="{{csrf_token}}"> 
-        <link rel="stylesheet" type="text/css" href="../css/vendor.css">
-        <link rel="stylesheet" type="text/css" href="../css/flat-admin.css">
-
-        <title>Curpha IOT | {{ page.title }}</title>
+        
+        <title>{{site.site_title}} | {{ page.title }}</title>
         
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="../images/favicon.jpeg" />
+        <link rel="icon" type="image/x-icon" href="{{site.uri.favicon}}" />
         
+        <!-- Page stylesheets -->
+        {% for item in includeCSS(page_group|default("common")) %}
+          <link rel="stylesheet" href="{{item}}" type="text/css" >
+        {% endfor %}
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,8 +43,12 @@
     </head>
     {% endblock %}
     <body>
-
+    <div class="container">
+      {% include 'components/jumbotron/main-nav.twig' %}
+      <div class="jumbotron">
         {% block content %}{% endblock %}
+      </div>	
+    </div> <!-- /container -->
     
     {# This block is for dynamic fragments of code that lie outside of the main DOM #}
     {% block fragments %}{% endblock %}
@@ -51,8 +57,11 @@
         <div class="container">
           <div class="row">
               <div class="col-sm-6 text-center">
-                  &copy; <a href="{{site.uri.public}}">Curpha</a>, {{ "now"|date("Y") }}
-              </div>     
+                  &copy; <a href="{{site.uri.public}}">{{site.site_title}}</a>, {{ "now"|date("Y") }}
+              </div>
+              <div class="col-sm-6 text-center">
+                  Built with <a href="http://www.userfrosting.com">UserFrosting</a>.
+              </div>        
           </div>
         </div>
     </footer>

@@ -7,49 +7,64 @@
     
     {% set page = page | merge({
         "title"       : "Login",
-        "description" : "Login to your UserFrosting account.",
         "active_page" : "account/login"
     }) %}    
-
     {{ parent() }}
 {% endblock %}
 
+
 {% block content %}
-<h1>Welcome to {{site.site_title}}!</h1>
-<p class="lead">Please sign in.</p>
-{% include 'components/common/alerts.twig' %}
-<form name="login" method="post" action="{{site.uri.public}}/account/login" class="form-horizontal">
-    <div class="row">
-      <div class="col-md-offset-3 col-md-6">
-            <div class="form-group">
-                <input type="text" class="form-control " name="user_name" autocomplete="off" value="" placeholder="{{ (site.email_login == 1) ? 'Username or Email' : 'Username' }}">
+  <div class="app app-default">
+
+<div class="app-container app-login">
+  <div class="flex-center">
+    <div class="app-header"></div>
+    <div class="app-body">
+      <div class="loader-container text-center">
+          <div class="icon">
+            <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+              </div>
             </div>
+          <div class="title">Logging in...</div>
       </div>
-      <div class="col-md-offset-3 col-md-6">
-        <div class="form-group">
-            <input type="password" class="form-control " name="password" autocomplete="off" value="" placeholder="Password">
+      <div class="app-block">
+      <div class="app-form">
+        <div class="form-header">
+          <div class="app-brand"><span class="highlight">Curpha IOT</span> Login</div>
         </div>
-      </div>
-      <div class="col-md-offset-3 col-md-6">
-        <div class="form-group">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="rememberme"> Remember me
-                </label>
+        <form name="login" method="post" action="{{site.uri.public}}/account/login">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <i class="fa fa-user" aria-hidden="true"></i></span>
+              <input type="text" class="form-control " aria-describedby="basic-addon1" name="user_name" autocomplete="off" value="" placeholder="{{ (site.email_login == 1) ? 'Username or Email' : 'Username' }}">
             </div>
-        </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon2">
+                <i class="fa fa-key" aria-hidden="true"></i></span>
+              <input type="password" class="form-control " name="password" aria-describedby="basic-addon2" autocomplete="off" value="" placeholder="Password">
+            </div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-success btn-submit" value="Login">
+            </div>
+        </form>
+
+        <div class="form-line"></div>
       </div>
-      <div class="col-md-12">
-        <button type="submit" class="btn btn-success">
-            Login
-        </button>
       </div>
     </div>
-</form>
-{% include 'components/jumbotron/jumbotron-links.twig' %}	
+  </div>
+</div>
+
+  </div>
 {% endblock %}
- 
+
 {% block page_scripts %}
+  <script type="text/javascript" src="js/vendor.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
     <script>
         $(document).ready(function() {           
             // Process form 
@@ -65,3 +80,4 @@
         });          
     </script>
 {% endblock %}
+
