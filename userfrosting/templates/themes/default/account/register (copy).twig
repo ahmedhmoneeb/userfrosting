@@ -14,53 +14,9 @@
     {{ parent() }}
 {% endblock %}
 
-
 {% block content %}
-  <div class="app app-default">
-
-<div class="app-container app-login">
-  <div class="flex-center">
-    <div class="app-header"></div>
-    <div class="app-body">
-      <div class="loader-container text-center">
-          <div class="icon">
-            <div class="sk-folding-cube">
-                <div class="sk-cube1 sk-cube"></div>
-                <div class="sk-cube2 sk-cube"></div>
-                <div class="sk-cube4 sk-cube"></div>
-                <div class="sk-cube3 sk-cube"></div>
-              </div>
-            </div>
-          <div class="title">Logging in...</div>
-      </div>
-      <div class="app-block">
-        <div class="app-right-section">
-          <div class="app-brand"><span class="highlight">Curpha IOT</span> Register</div>
-          <div class="app-info">
-            
-            <ul class="list">
-              <li>
-                <div class="icon">
-                  <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                </div>
-                <div class="title">Increase <b>Productivity</b></div>
-              </li>
-              <li>
-                <div class="icon">
-                  <i class="fa fa-cubes" aria-hidden="true"></i>
-                </div>
-                <div class="title">Lot of <b>Components</b></div>
-              </li>
-              <li>
-                <div class="icon">
-                  <i class="fa fa-usd" aria-hidden="true"></i>
-                </div>
-                <div class="title">Forever <b>Free</b></div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="app-form">
+<h1>Let's get started!</h1>
+<p class="lead">Registration is fast and simple.</p>
 {% include 'components/common/alerts.twig' %}
 <form name="register" method="post" action="{{site.uri.public}}/account/register" class="form-horizontal">
     <div class="row">
@@ -165,15 +121,22 @@
       <input name="spiderbro" id="spiderbro" value="http://"/>
     </div>          
 </form>
-          <div class="form-line"></div>
-      </div>
-    </div>
-    <div class="app-footer">
-    </div>
-  </div>
-</div>
+{% include 'components/jumbotron/jumbotron-links.twig' %}	
+{% endblock %}
 
-  </div>
+{% block fragments %}
+    <div id="tos" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Terms and Conditions for {{site.site_title}}</h4>
+        </div>
+        <div class="modal-body">
+            {% include 'components/common/tos.twig' %}	
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary">Got it!</button>
+        </div>
+    </div>
 {% endblock %}
 
 {% block page_scripts %} 
@@ -195,26 +158,26 @@
             );
         });    
         
-            // This plugin reloads the captcha in the specified field
-            (function( $ ) {
-                $.fn.captcha = function() {
-                    var field = $(this);
-                    console.log("Reloading captcha");
-                    
-                    var img_src = site['uri']['public'] + "/account/captcha?" + new Date().getTime();
-                    
-                    return $.ajax({  
-                      type: "GET",  
-                      url: img_src,  
-                      dataType: "text"
-                    }).then(function(data, statusText, jqXHR) {  // Pass the deferral back
-                        field.attr('src', data);
-                        var target = field.data('target');
-                        $(target).val("");
-                        return data;
-                    });
-                };
-            }( jQuery ));        
+        // This plugin reloads the captcha in the specified field
+        (function( $ ) {
+            $.fn.captcha = function() {
+                var field = $(this);
+                console.log("Reloading captcha");
+                
+                var img_src = site['uri']['public'] + "/account/captcha?" + new Date().getTime();
+                
+                return $.ajax({  
+                  type: "GET",  
+                  url: img_src,  
+                  dataType: "text"
+                }).then(function(data, statusText, jqXHR) {  // Pass the deferral back
+                    field.attr('src', data);
+                    var target = field.data('target');
+                    $(target).val("");
+                    return data;
+                });
+            };
+        }( jQuery ));        
         
     </script>
 {% endblock %}
