@@ -187,7 +187,7 @@ else
     
     $app->get('/zerg/?', function () use ($app) {    
         // Access-controlled page
-        if (!$app->user->checkAccess('uri_dashboard')){
+        if (!$app->user->checkAccess('uri_zerg')){
             $app->notFound();
         }
         
@@ -196,21 +196,11 @@ else
     
     $app->get('/monitor/?', function () use ($app) {    
         // Access-controlled page
-        if (!$app->user->checkAccess('uri_dashboard')){
+        if (!$app->user->checkAccess('uri_zerg')){
             $app->notFound();
         }
         
         $app->render('monitor.twig'); 
-    });    
-       
-       
-    $app->get('/configure/?', function () use ($app) {    
-        // Access-controlled page
-        if (!$app->user->checkAccess('uri_dashboard')){
-            $app->notFound();
-        }
-        
-        $app->render('configure.twig'); 
     });    
        
     /********** ACCOUNT MANAGEMENT INTERFACE **********/

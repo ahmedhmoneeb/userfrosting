@@ -20,7 +20,7 @@
 
 <aside class="app-sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="sidebar-brand" href="#"><span class="highlight">CURPHA</span> Admin</a>
+    <a class="sidebar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
     <button type="button" class="sidebar-toggle">
       <i class="fa fa-times"></i>
     </button>
@@ -37,21 +37,50 @@
       </li>
 
       <li class="dropdown ">
-        <a href="{{site.uri.public}}/monitor">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <div class="icon">
             <i class="fa fa-bar-chart-o" aria-hidden="true"></i>
           </div>
           <div class="title">Monitor</div>
         </a>
-        
+        <div class="dropdown-menu">
+          <ul>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> UI Kits</li>
+            <li><a href="./uikits/customize.html">Customize</a></li>
+            <li><a href="./uikits/components.html">Components</a></li>
+            <li><a href="./uikits/card.html">Card</a></li>
+            <li><a href="./uikits/form.html">Form</a></li>
+            <li><a href="./uikits/table.html">Table</a></li>
+            <li><a href="./uikits/icons.html">Icons</a></li>
+            <li class="line"></li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Advanced Components</li>
+            <li><a href="./uikits/pricing-table.html">Pricing Table</a></li>
+            <!-- <li><a href="./uikits/timeline.html">Timeline</a></li> -->
+            <li><a href="./uikits/chart.html">Chart</a></li>
+          </ul>
+        </div>
       </li>
       <li class="dropdown">
-        <a href="{{site.uri.public}}/configure">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <div class="icon">
             <i class="fa fa-wrench" aria-hidden="true"></i>
           </div>
           <div class="title">Configure</div>
         </a>
+        <div class="dropdown-menu">
+          <ul>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Admin</li>
+            <li><a href="./pages/form.html">Form</a></li>
+            <li><a href="./pages/profile.html">Profile</a></li>
+            <li><a href="./pages/search.html">Search</a></li>
+            <li class="line"></li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Landing</li>
+            <!-- <li><a href="./pages/landing.html">Landing</a></li> -->
+            <li><a href="./pages/login.html">Login</a></li>
+            <li><a href="./pages/register.html">Register</a></li>
+            <!-- <li><a href="./pages/404.html">404</a></li> -->
+          </ul>
+        </div>
       </li>
     </ul>
   </div>
@@ -249,30 +278,19 @@
 
   <div class="btn-floating" id="help-actions">
   <div class="btn-bg"></div>
-  <button type="button" class="btn btn-default btn-toggle" data-toggle="modal" data-target="#myModal">
+  <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
     <i class="icon fa fa-plus"></i>
+    <span class="help-text">Shortcut</span>
   </button>
+  <div class="toggle-content">
+    <ul class="actions">
+      <li><a href="#">Website</a></li>
+      <li><a href="#">Documentation</a></li>
+      <li><a href="#">Issues</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
   </div>
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add new device</h4>
-          </div>
-          <div class="modal-body">
-            <p>Please enter the serial number you will find at the back of the device and click "Add"</p>
-            <input class="form-control" placeholder="Serial Number" id="deviceSerialNumber">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-success" id="addDeviceButton">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+</div>
 
 <div class="row">
   <div class="col-xs-12">
@@ -447,7 +465,6 @@
     </div>
   </div>
 </div>
-
   <footer class="app-footer"> 
   <div class="row">
     <div class="col-xs-12">

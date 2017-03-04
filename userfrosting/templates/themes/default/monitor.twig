@@ -20,38 +20,74 @@
 
 <aside class="app-sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="sidebar-brand" href="#"><span class="highlight">CURPHA</span> Admin</a>
+    <a class="sidebar-brand" href="#"><span class="highlight">Flat v3</span> Admin</a>
     <button type="button" class="sidebar-toggle">
       <i class="fa fa-times"></i>
     </button>
   </div>
   <div class="sidebar-menu">
     <ul class="sidebar-nav">
-      <li class="active">
-        <a href="./index.html">
+      <li class="">
+        <a href="../index.html">
           <div class="icon">
-            <i class="fa fa-dashboard" aria-hidden="true"></i>
+            <i class="fa fa-tasks" aria-hidden="true"></i>
           </div>
           <div class="title">Dashboard</div>
         </a>
       </li>
-
-      <li class="dropdown ">
-        <a href="{{site.uri.public}}/monitor">
+      <li class="@@menu.messaging">
+        <a href="../messaging.html">
           <div class="icon">
-            <i class="fa fa-bar-chart-o" aria-hidden="true"></i>
+            <i class="fa fa-comments" aria-hidden="true"></i>
           </div>
-          <div class="title">Monitor</div>
+          <div class="title">Messaging</div>
         </a>
-        
+      </li>
+      <li class="dropdown active">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <div class="icon">
+            <i class="fa fa-cube" aria-hidden="true"></i>
+          </div>
+          <div class="title">UI Kits</div>
+        </a>
+        <div class="dropdown-menu">
+          <ul>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> UI Kits</li>
+            <li><a href="../uikits/customize.html">Customize</a></li>
+            <li><a href="../uikits/components.html">Components</a></li>
+            <li><a href="../uikits/card.html">Card</a></li>
+            <li><a href="../uikits/form.html">Form</a></li>
+            <li><a href="../uikits/table.html">Table</a></li>
+            <li><a href="../uikits/icons.html">Icons</a></li>
+            <li class="line"></li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Advanced Components</li>
+            <li><a href="../uikits/pricing-table.html">Pricing Table</a></li>
+            <!-- <li><a href="../uikits/timeline.html">Timeline</a></li> -->
+            <li><a href="../uikits/chart.html">Chart</a></li>
+          </ul>
+        </div>
       </li>
       <li class="dropdown">
-        <a href="{{site.uri.public}}/configure">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <div class="icon">
-            <i class="fa fa-wrench" aria-hidden="true"></i>
+            <i class="fa fa-file-o" aria-hidden="true"></i>
           </div>
-          <div class="title">Configure</div>
+          <div class="title">Pages</div>
         </a>
+        <div class="dropdown-menu">
+          <ul>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Admin</li>
+            <li><a href="../pages/form.html">Form</a></li>
+            <li><a href="../pages/profile.html">Profile</a></li>
+            <li><a href="../pages/search.html">Search</a></li>
+            <li class="line"></li>
+            <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Landing</li>
+            <!-- <li><a href="../pages/landing.html">Landing</a></li> -->
+            <li><a href="../pages/login.html">Login</a></li>
+            <li><a href="../pages/register.html">Register</a></li>
+            <!-- <li><a href="../pages/404.html">404</a></li> -->
+          </ul>
+        </div>
       </li>
     </ul>
   </div>
@@ -76,8 +112,7 @@
   </div>
 </script>
 <div class="app-container">
-
-  <nav class="navbar navbar-default" id="navbar">
+<nav class="navbar navbar-default" id="navbar">
   <div class="container-fluid">
     <div class="navbar-collapse collapse in">
       <ul class="nav navbar-nav navbar-mobile">
@@ -96,7 +131,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
-        <li class="navbar-title">Dashboard for {{userName}}</li>
+        <li class="navbar-title"><span class="highlight">Card</span>&nbsp;<span>Kits</span></li>
         <li class="navbar-search hidden-sm">
           <input id="search" type="text" placeholder="Search..">
           <button class="btn-search"><i class="fa fa-search"></i></button>
@@ -235,7 +270,7 @@
                 </a>
               </li>
               <li>
-                <a href="{{site.uri.public}}/account/logout">
+                <a href="#">
                   Logout
                 </a>
               </li>
@@ -247,216 +282,114 @@
   </div>
 </nav>
 
-  <div class="btn-floating" id="help-actions">
-  <div class="btn-bg"></div>
-  <button type="button" class="btn btn-default btn-toggle" data-toggle="modal" data-target="#myModal">
-    <i class="icon fa fa-plus"></i>
-  </button>
-  </div>
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add new device</h4>
-          </div>
-          <div class="modal-body">
-            <p>Please enter the serial number you will find at the back of the device and click "Add"</p>
-            <input class="form-control" placeholder="Serial Number" id="deviceSerialNumber">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-success" id="addDeviceButton">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-<div class="row">
-  <div class="col-xs-12">
-    <div class="card card-banner card-chart card-green no-br">
-      <div class="card-header">
-        <div class="card-title">
-          <div class="title">Top Sale Today</div>
-        </div>
-        <ul class="card-action">
-          <li>
-            <a href="/">
-              <i class="fa fa-refresh"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <div class="ct-chart-sale"></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-      <a class="card card-banner card-green-light">
-  <div class="card-body">
-    <i class="icon fa fa-shopping-basket fa-4x"></i>
-    <div class="content">
-      <div class="title">Sale Today</div>
-      <div class="value"><span class="sign">$</span>420</div>
-    </div>
-  </div>
-</a>
-
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-      <a class="card card-banner card-blue-light">
-  <div class="card-body">
-    <i class="icon fa fa-thumbs-o-up fa-4x"></i>
-    <div class="content">
-      <div class="title">Page Likes</div>
-      <div class="value"><span class="sign"></span>2453</div>
-    </div>
-  </div>
-</a>
-
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-      <a class="card card-banner card-yellow-light">
-  <div class="card-body">
-    <i class="icon fa fa-user-plus fa-4x"></i>
-    <div class="content">
-      <div class="title">New Registration</div>
-      <div class="value"><span class="sign"></span>50</div>
-    </div>
-  </div>
-</a>
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <div class="card card-mini">
-      <div class="card-header">
-        <div class="card-title">Last Statuses</div>
-        <ul class="card-action">
-          <li>
-            <a href="/">
-              <i class="fa fa-refresh"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body no-padding table-responsive">
-        <table class="table card-table">
-          <thead>
-            <tr>
-              <th>Products</th>
-              <th class="right">Amount</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>MicroSD 64Gb</td>
-              <td class="right">12</td>
-              <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Complete</span></span></td>
-            </tr>
-            <tr>
-              <td>MiniPC i5</td>
-              <td class="right">5</td>
-              <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Pending</span></span></td>
-            </tr>
-            <tr>
-              <td>Mountain Bike</td>
-              <td class="right">1</td>
-              <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
-            </tr>
-            <tr>
-              <td>Notebook</td>
-              <td class="right">10</td>
-              <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Cancelled</span></span></td>
-            </tr>
-            <tr>
-              <td>Raspberry Pi2</td>
-              <td class="right">6</td>
-              <td><span class="badge badge-primary badge-icon"><i class="fa fa-truck" aria-hidden="true"></i><span>Shipped</span></span></td>
-            </tr>
-            <tr>
-              <td>Flashdrive 128Mb</td>
-              <td class="right">40</td>
-              <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <div class="card card-tab card-mini">
-      <div class="card-header">
-        <ul class="nav nav-tabs tab-stats">
-          <li role="tab1" class="active">
-            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Browsers</a>
-          </li>
-          <li role="tab2">
-            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">OS</a>
-          </li>
-          <li role="tab2">
-            <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">More</a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body tab-content">
-        <div role="tabpanel" class="tab-pane active" id="tab1">
-          <div class="row">
-            <div class="col-sm-8">
-              <div class="chart ct-chart-browser ct-perfect-fourth"></div>
-            </div>
-            <div class="col-sm-4">
-              <ul class="chart-label">
-                <li class="ct-label ct-series-a">Google Chrome</li>
-                <li class="ct-label ct-series-b">Firefox</li>
-                <li class="ct-label ct-series-c">Safari</li>
-                <li class="ct-label ct-series-d">IE</li>
-                <li class="ct-label ct-series-e">Opera</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="tab2">
-          <div class="row">
-            <div class="col-sm-8">
-              <div class="chart ct-chart-os ct-perfect-fourth"></div>
-            </div>
-            <div class="col-sm-4">
-              <ul class="chart-label">
-                <li class="ct-label ct-series-a">iOS</li>
-                <li class="ct-label ct-series-b">Android</li>
-                <li class="ct-label ct-series-c">Windows</li>
-                <li class="ct-label ct-series-d">OSX</li>
-                <li class="ct-label ct-series-e">Linux</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="tab3">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <footer class="app-footer"> 
   <div class="row">
-    <div class="col-xs-12">
-      <div class="footer-copyright">
-        Copyright © 2016 Company Co,Ltd.
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Card</div>
+          <ul class="card-action">
+            <li class="dropdown">
+              <a href="/" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action 1</a></li>
+                <li><a href="#">Action 2</a></li>
+                <li><a href="#">Action 3</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Card Table
+        </div>
+        <div class="card-body no-padding">
+          <div class="table-responsive">
+  <table class="table card-table">
+    <thead>
+      <tr>
+        <th>Products</th>
+        <th>Amount</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>MicroSD 64Gb</td>
+        <td>2</td>
+        <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Complete</span></span></td>
+      </tr>
+      <tr>
+        <td>MiniPC i5</td>
+        <td>5</td>
+        <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Pending</span></span></td>
+      </tr>
+      <tr>
+        <td>Mountain Bike</td>
+        <td>1</td>
+        <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
+      </tr>
+      <tr>
+        <td>Notebook</td>
+        <td>1</td>
+        <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Cancelled</span></span></td>
+      </tr>
+      <tr>
+        <td>Raspberry Pi2</td>
+        <td>6</td>
+        <td><span class="badge badge-primary badge-icon"><i class="fa fa-truck" aria-hidden="true"></i><span>Shipped</span></span></td>
+      </tr>
+      <tr>
+        <td>Flashdrive 128Mb</td>
+        <td>4</td>
+        <td><span class="badge badge-info  badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-mini">
+        <div class="card-header">
+          Card Mini
+        </div>
+        <div class="card-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card card-tab card-mini">
+        <div class="card-header">
+          <ul class="nav nav-tabs">
+            <li role="tab1" class="active">
+              <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Card Tab 1</a>
+            </li>
+            <li role="tab2">
+              <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Card Tab 2</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body tab-content no-padding">
+          <div role="tabpanel" class="tab-pane active" id="tab1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          </div>
+          <div role="tabpanel" class="tab-pane" id="tab2">
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nullaip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nullaip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</footer>
 </div>
 
   </div>
