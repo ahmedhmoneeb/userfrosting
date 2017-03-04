@@ -131,7 +131,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
-        <li class="navbar-title"><span class="highlight">Card</span>&nbsp;<span>Kits</span></li>
+        <li class="navbar-title"><span class="highlight">Monitor</span>&nbsp;<span>Devices</span></li>
         <li class="navbar-search hidden-sm">
           <input id="search" type="text" placeholder="Search..">
           <button class="btn-search"><i class="fa fa-search"></i></button>
@@ -284,111 +284,87 @@
 
   <div class="row">
     <div class="col-md-12">
-      <div class="card">
+      <div class="card card-tab card-mini">
         <div class="card-header">
-          <div class="card-title">Card</div>
-          <ul class="card-action">
-            <li class="dropdown">
-              <a href="/" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-cogs" aria-hidden="true"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action 1</a></li>
-                <li><a href="#">Action 2</a></li>
-                <li><a href="#">Action 3</a></li>
-              </ul>
+          <ul class="nav nav-tabs">
+            <li role="tab1" class="active">
+              <a href="#wifi" aria-controls="wifi" role="tab" data-toggle="tab">Wifi</a>
+            </li>
+            <li role="tab1">
+              <a href="#security" aria-controls="security" role="tab" data-toggle="tab">Security</a>
+            </li>
+            <li role="tab2">
+              <a href="#camera" aria-controls="camera" role="tab" data-toggle="tab">Camera</a>
+            </li>
+            </li>
+            <li role="tab2">
+              <a href="#smartHome" aria-controls="smartHome" role="tab" data-toggle="tab">Smart Home</a>
             </li>
           </ul>
         </div>
-        <div class="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Card Table
-        </div>
-        <div class="card-body no-padding">
+        <div class="card-body tab-content no-padding">
+          <div role="tabpanel" class="tab-pane active" id="wifi">
+             <div class="card-body no-padding">
           <div class="table-responsive">
   <table class="table card-table">
     <thead>
       <tr>
-        <th>Products</th>
+        <th>Device name</th>
         <th>Amount</th>
         <th>Status</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>MicroSD 64Gb</td>
+        <td>Device1</td>
         <td>2</td>
-        <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Complete</span></span></td>
+        <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Connected</span></span></td>
       </tr>
       <tr>
-        <td>MiniPC i5</td>
+        <td>Device2</td>
         <td>5</td>
-        <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Pending</span></span></td>
+        <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>UnConfigured</span></span></td>
       </tr>
       <tr>
-        <td>Mountain Bike</td>
+        <td>Device3</td>
         <td>1</td>
-        <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
+        <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>On Hold</span></span></td>
       </tr>
       <tr>
-        <td>Notebook</td>
+        <td>Device4</td>
         <td>1</td>
-        <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Cancelled</span></span></td>
+        <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Disconnected</span></span></td>
       </tr>
       <tr>
-        <td>Raspberry Pi2</td>
+        <td>Device5</td>
         <td>6</td>
-        <td><span class="badge badge-primary badge-icon"><i class="fa fa-truck" aria-hidden="true"></i><span>Shipped</span></span></td>
+        <td><span class="badge badge-primary badge-icon"><i class="fa fa-truck" aria-hidden="true"></i><span>statustest</span></span></td>
       </tr>
       <tr>
-        <td>Flashdrive 128Mb</td>
+        <td>Device6</td>
         <td>4</td>
-        <td><span class="badge badge-info  badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
+        <td><span class="badge badge-info  badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>statusTest</span></span></td>
       </tr>
     </tbody>
   </table>
 </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card card-mini">
-        <div class="card-header">
-          Card Mini
-        </div>
-        <div class="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card card-tab card-mini">
-        <div class="card-header">
-          <ul class="nav nav-tabs">
-            <li role="tab1" class="active">
-              <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Card Tab 1</a>
-            </li>
-            <li role="tab2">
-              <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Card Tab 2</a>
-            </li>
-          </ul>
-        </div>
-        <div class="card-body tab-content no-padding">
-          <div role="tabpanel" class="tab-pane active" id="tab1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
           </div>
-          <div role="tabpanel" class="tab-pane" id="tab2">
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nullaip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nullaip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          <div role="tabpanel" class="tab-pane" id="security">
+            Security
+          </div>
+          <div role="tabpanel" class="tab-pane" id="camera">
+            Camera
+          </div>
+          <div role="tabpanel" class="tab-pane" id="smartHome">
+            Smart Home
           </div>
         </div>
       </div>
     </div>
+
+
+    
   </div>
 </div>
 
