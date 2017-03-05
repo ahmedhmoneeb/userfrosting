@@ -213,6 +213,15 @@ else
         
         $app->render('configure.twig'); 
     });    
+    
+    $app->get('/help/?', function () use ($app) {    
+        // Access-controlled page
+        if (!$app->user->checkAccess('uri_dashboard')){
+            $app->notFound();
+        }
+        
+        $app->render('help.twig'); 
+    });    
        
     /********** ACCOUNT MANAGEMENT INTERFACE **********/
     
