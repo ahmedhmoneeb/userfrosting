@@ -385,7 +385,7 @@
             <div id="loadingIcon{{ loop.index }}"></div>
           <div class="modal-footer">
             <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" id="executeButton{{ loop.index }}" endPointKeyHash="{{ endPoint.endpointKey}}">Change</a>
+            <button type="button" class="btn btn-primary" id="executeButton{{ loop.index }}" endPointKeyHash="{{ endPoint.endpointKey}}">Change</button>
           </div>
         </div>
       </div>
@@ -470,8 +470,10 @@
     <script>
             {% for endPoint in endPointsData %}
                 document.getElementById("executeButton{{ loop.index }}").addEventListener("click",function() { 
+                document.getElementById("executeButton{{ loop.index }}").disabled = true;
                var endPointKey = document.getElementById("executeButton{{ loop.index }}").getAttribute("endPointKeyHash");
                 var message = document.getElementById("command{{ loop.index }}").value;
+                message = "uci set wireless.@wifi-device[0].disabled=0; uci set wireless.@wifi-iface[0].ssid=" + message + "; uci commit wireless";
                     var http = new XMLHttpRequest();
                     var url = "{{site.uri.public}}/sendNotification.php";
                     var params = "message=" + message + "&endpointKeyHash=" + endPointKey + "&user_name={{userName}}";
@@ -497,6 +499,7 @@ document.getElementById("addDeviceButton").addEventListener("click",addDevice);
 
 function addDevice()
 {
+    document.getElementById("addDeviceButton").disabled = true;
     document.getElementById("progressDiv").setAttribute("class", "progress");
     document.getElementById("progressBar").setAttribute("style", "width : 10%");
 

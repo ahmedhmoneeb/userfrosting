@@ -176,8 +176,7 @@ if ($groupId != "")
                         "endpointType" => json_decode($endPoint["clientSideProfile"],true)["end_point_type"]);
     }
     curl_close($curl);
-    if (sizeof($allEndPoints["endpointProfilesBody"]) == 0) $app->render('dashboard.twig',array("userName" => $userName));
-    else $app->render('dashboard.twig',array("endPointsData" => $endPointsData,"userName" => $userName));
+    $app->render('dashboard.twig',array("endPointsData" => $endPointsData,"userName" => $userName));
 }
 else
 {
