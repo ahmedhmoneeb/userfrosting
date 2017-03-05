@@ -262,9 +262,13 @@
             <h4 class="modal-title">Add new device</h4>
           </div>
           <div class="modal-body">
+          <div class="" role="" id="alertAddDevice"></div>
             <p>Please enter the serial number you will find at the back of the device and click "Add"</p>
             <input class="form-control" placeholder="Serial Number" id="deviceSerialNumber">
-            <img src="images/serialNumber.PNG">
+                <div class="" id="progressDiv">
+                        <div id="progressBar" class="progress-bar progress-bar-success  progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style=""></div>
+                </div>
+            <img class="img-responsive" src="images/serialNumber.PNG">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
@@ -339,7 +343,7 @@
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
     <div class="card card-mini">
       <div class="card-header">
-        <div class="card-title">Last Statuses</div>
+        <div class="card-title">Your Devices</div>
         <ul class="card-action">
           <li>
             <a href="/">
@@ -348,49 +352,48 @@
           </li>
         </ul>
       </div>
-      <div class="card-body no-padding table-responsive">
-        <table class="table card-table">
-          <thead>
-            <tr>
-              <th>Products</th>
-              <th class="right">Amount</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>MicroSD 64Gb</td>
-              <td class="right">12</td>
-              <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Complete</span></span></td>
-            </tr>
-            <tr>
-              <td>MiniPC i5</td>
-              <td class="right">5</td>
-              <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Pending</span></span></td>
-            </tr>
-            <tr>
-              <td>Mountain Bike</td>
-              <td class="right">1</td>
-              <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
-            </tr>
-            <tr>
-              <td>Notebook</td>
-              <td class="right">10</td>
-              <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Cancelled</span></span></td>
-            </tr>
-            <tr>
-              <td>Raspberry Pi2</td>
-              <td class="right">6</td>
-              <td><span class="badge badge-primary badge-icon"><i class="fa fa-truck" aria-hidden="true"></i><span>Shipped</span></span></td>
-            </tr>
-            <tr>
-              <td>Flashdrive 128Mb</td>
-              <td class="right">40</td>
-              <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>Confirm Payment</span></span></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="table-responsive">
+  <table class="table card-table">
+    <thead>
+      <tr>
+        <th>Device name</th>
+        <th>Serial Number</th>
+        <th>Status</th>
+        <th>Configure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <p id="endPointCounter" endPointCount = "{{endPointsData|length}}"></p>
+      {% for endPoint in endPointsData %}
+      <tr>
+        <td>EndPoint {{ loop.index }}</td>
+        <td>{{ endPoint.endpointSerialNumber}}</td>
+        <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Connected</span></span></td>
+        <td><button type="button" class="btn btn-success btn-toggle btn-xs" data-toggle="modal" data-target="#changeSSID{{ loop.index }}">Test</button></td>
+      </tr>
+          <div class="modal fade" id="changeSSID{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Change SSID</h4>
+          </div>
+          <div class="modal-body">
+            <p>Please enter the new SSID and then click "Change"</p>
+            <input class="form-control" placeholder="Enter Command" id="command{{ loop.index }}">
+            <div class="" role="" id="alertUser{{ loop.index }}"></div>
+            <div id="loadingIcon{{ loop.index }}"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" id="executeButton{{ loop.index }}" endPointKeyHash="{{ endPoint.endpointKey}}">Change</a>
+          </div>
+        </div>
       </div>
+    </div>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
     </div>
   </div>
 
@@ -464,6 +467,93 @@
   
   <script type="text/javascript" src="js/vendor.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+    <script>
+            {% for endPoint in endPointsData %}
+                document.getElementById("executeButton{{ loop.index }}").addEventListener("click",function() { 
+               var endPointKey = document.getElementById("executeButton{{ loop.index }}").getAttribute("endPointKeyHash");
+                var message = document.getElementById("command{{ loop.index }}").value;
+                    var http = new XMLHttpRequest();
+                    var url = "{{site.uri.public}}/sendNotification.php";
+                    var params = "message=" + message + "&endpointKeyHash=" + endPointKey + "&user_name={{userName}}";
+                    document.getElementById("loadingIcon{{ loop.index }}").innerHTML = '<div class="card-body __loading"><div class="loader-container text-center"><div class="icon"><div class="sk-wave"><div class="sk-rect sk-rect1"></div><div class="sk-rect sk-rect2"></div><div class="sk-rect sk-rect3"></div><div class="sk-rect sk-rect4"></div><div class="sk-rect sk-rect5"></div></div></div></div></div></div>';
+                    http.open("POST", url, true);
+                    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        //alert("Command Sent Successfully!!");
+        document.getElementById("loadingIcon{{ loop.index }}").innerHTML = '';
+        document.getElementById("alertUser{{ loop.index }}").setAttribute("class", "alert alert-success");
+        document.getElementById("alertUser{{ loop.index }}").setAttribute("role", "alert");
+        document.getElementById("alertUser{{ loop.index }}").innerHTML = "Command Send Yay !!";
+    }
+}
+http.send(params);
+                       
+                       
+                       },false);
+            {% endfor %}
 
+document.getElementById("addDeviceButton").addEventListener("click",addDevice);
+
+function addDevice()
+{
+    document.getElementById("progressDiv").setAttribute("class", "progress");
+    document.getElementById("progressBar").setAttribute("style", "width : 10%");
+
+    var serialNumber = document.getElementById("deviceSerialNumber").value;
+    
+    url = "{{site.uri.public}}/checkEndPoint.php" + "?serial_num=" + serialNumber;
+		try
+		{
+			ob=new XMLHttpRequest();
+			ob.open("GET",url,true);
+			ob.addEventListener("readystatechange",processResponse);
+			ob.send();
+			document.getElementById("progressBar").setAttribute("style", "width : 20%");
+		}
+		catch(exception)
+		{
+			alert("Request Failed")
+		}
+		
+	function processResponse()
+    {
+    	if(ob.readyState==4)
+    	{
+    	    document.getElementById("progressBar").setAttribute("style", "width : 30%");
+    		resp = ob.responseText;
+    		if (resp == 0)
+    		{
+    		    //window.alert("error");
+    		    document.getElementById("alertAddDevice").setAttribute("class", "alert alert-danger");
+                document.getElementById("alertAddDevice").setAttribute("role", "alert");
+                document.getElementById("alertAddDevice").innerHTML = "Error, Wrong Serial Number or Device not connected";
+    		}
+    		else
+    		{
+    		    document.getElementById("progressBar").setAttribute("style", "width : 70%");
+    		    //window.alert('{{userName}} ' + resp);
+    		    var http = new XMLHttpRequest();
+                var url = "{{site.uri.public}}/createSDK.php";
+                var params = "user_name={{userName}}"+ "&endPointInfo=" + resp;
+                http.open("POST", url, true);
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                http.onreadystatechange = function() 
+                    {//Call a function when the state changes.
+                        if(http.readyState == 4 && http.status == 200) 
+                        {
+                            document.getElementById("progressBar").setAttribute("style", "width : 100%");
+                            document.getElementById("alertAddDevice").setAttribute("class", "alert alert-success");
+                            document.getElementById("alertAddDevice").setAttribute("role", "alert");
+                            document.getElementById("alertAddDevice").innerHTML = "Yaaaaaay added successfully";
+                            //window.alert("Info Sent Successfully");
+                        }
+    		        }
+    		    http.send(params);
+    	    }
+        }
+    }
+}
+    </script>
 </body>
 </html>

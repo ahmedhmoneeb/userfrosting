@@ -320,6 +320,17 @@
         <td>2</td>
         <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Connected</span></span></td>
       </tr>
+      
+            <p id="endPointCounter" endPointCount = "{{endPointsData|length}}"></p>
+                        {% for endPoint in endPointsData %}
+                            <tr>
+        <td>EndPoint {{ loop.index }}</td>
+        <td>{{ endPoint.endpointSerialNumber}}</td>
+        <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Connected</span></span></td>
+      </tr>
+                             
+                        {% endfor %}
+      
       <tr>
         <td>Device2</td>
         <td>5</td>
