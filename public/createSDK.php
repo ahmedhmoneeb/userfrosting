@@ -46,9 +46,9 @@ $SDKId = "";
 //Git and Repo Info
 $gitPrivateToken = "MhJVohNKvkC9kPLe-U5P";
 $gitLabServerIP = "88.85.224.45";
-$gitUserName = $_GET['user_name'] . "_git_user";
+$gitUserName = $userName . "_git_user";
 $gitUserId = "";
-$gitRepoName = $_GET['user_name'] . "_git_repo";
+$gitRepoName = $userName . "_git_repo";
 
 //Get all the tenants in the system
 $curl = curl_init();
