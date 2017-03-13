@@ -43,13 +43,6 @@ $applicationToken = "";
 $SDKName = "SDK V1";
 $SDKId = "";
 
-//Git and Repo Info
-$gitPrivateToken = "MhJVohNKvkC9kPLe-U5P";
-$gitLabServerIP = "88.85.224.45";
-$gitUserName = $_GET['user_name'] . "_git_user";
-$gitUserId = "";
-$gitRepoName = $_GET['user_name'] . "_git_repo";
-
 //Get all the tenants in the system
 $curl = curl_init();
 curl_setopt_array($curl, array(
@@ -317,81 +310,6 @@ if ($applicationToken == "")
     ));
     $resp = curl_exec($curl);
     curl_close($curl);
-    
-    
-    //Configuration -----------------------------------------------------
-    //Get all the users registered on gitlab
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'http://' . $gitLabServerIP . '/api/v3/users/',
-    CURLOPT_HTTPHEADER => array('PRIVATE-TOKEN: ' . $gitPrivateToken)
-    ));
-$resp = curl_exec($curl);
-$allUsers = json_decode($resp,true);
-foreach ($allUsers as $user)
-{
-    if ($user["username"] == $gitUserName)
-        $gitUserId = $user["id"];
-}
-curl_close($curl);
-
-if ($gitUserId == "")
-{
-    //Create a new user account and get the new user's ID :
-    $curl = curl_init();
-    $data = array("email" => $gitUserName . "@sjkvnkjvndkfvdf.com",
-                  "password" => "lolpassword",
-                  "username" => $gitUserName,
-                  "name" => $gitUserName,
-                    );
-    $data_string = json_encode($data);
-    curl_setopt_array($curl, array(
-        CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'http://' . $gitLabServerIP . '/api/v3/users/',
-        CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => $data_string,
-        CURLOPT_HTTPHEADER => array('Content-Type: application/json','Content-Length: ' . strlen($data_string),'PRIVATE-TOKEN: ' . $gitPrivateToken)
-        ));
-    $resp = curl_exec($curl);
-    echo $resp;
-    $userInfo = json_decode($resp, true);
-    $gitUserId = $userInfo['id'];
-    
-    //Create a new project for specified user:
-    $curl = curl_init();
-    $data = array("user_id" => $gitUserId,
-                  "name" => $gitRepoName,
-                  "visibility" => "public",
-                  "public" => "true");                                                                    
-    $data_string = json_encode($data);
-    curl_setopt_array($curl, array(
-        CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'http://' . $gitLabServerIP . '/api/v3/projects/user/' . $gitUserId . '/',
-        CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => $data_string,
-        CURLOPT_HTTPHEADER => array('Content-Type: application/json','Content-Length: ' . strlen($data_string),'PRIVATE-TOKEN: ' . $gitPrivateToken)
-        ));
-    $resp = curl_exec($curl);
-    echo $resp;
-    
-    $command = "mkdir tmp/";
-    echo $command;
-    echo system($command);
-    
-    $command = "cd tmp/ ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
-    echo $command;
-    echo system($command);
-    
-    $command = "cp configFiles/* tmp/" . $gitRepoName;
-    echo $command;
-    echo system($command);
-    
-    $command = "cd tmp/" . $gitRepoName . '; git config user.email "someone@djfnvkdjf.com" ; git config user.name "dndkjfvf" ; git add . ; git commit -m "jhvbdhfvfd" ; git push origin master;';
-    echo $command;
-    echo system($command);
-
-}
 }
 
 //Get all the SDK profile in this app to get the SDK's ID
@@ -434,7 +352,7 @@ shell_exec($command);
 //Send commands to the endpoint to download the new sdk
 $curl = curl_init();
 $data = array("user_name" => "adminCurpha",
-                "message" => "wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . ".ipk ; kaaSDK & ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git",
+                "message" => "wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . ".ipk ; kaaSDK &",
                 "endpointKeyHash" => $endPointKeyHash);
 
 curl_setopt_array($curl, array(
