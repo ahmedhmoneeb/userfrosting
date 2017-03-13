@@ -387,7 +387,7 @@ if ($gitUserId == "")
     echo $command;
     echo system($command);
     
-    $command = "cd tmp/" . $gitRepoName . '; git config user.email "someone@djfnvkdjf.com" ; git config user.name "dndkjfvf" ; git add . ; git commit -m "jhvbdhfvfd" ; git push origin master;';
+    $command = "cd tmp/" . $gitRepoName . '; git config user.email "someone@djfnvkdjf.com" ; git config user.name "dndkjfvf" ; git add . ; git commit -m "jhvbdhfvfd" ; git push origin master; cd ../.. ; rm -rf tmp;';
     echo $command;
     echo system($command);
 
