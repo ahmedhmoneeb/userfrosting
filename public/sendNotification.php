@@ -141,6 +141,7 @@ $endpointKeyHash = $_POST['endpointKeyHash'];
 $output = shell_exec('rm msg.json');
 $file = 'msg.json';
 $current = array("message" => $msg);
+echo $msg;
 // Write the contents back to the file
 file_put_contents($file, json_encode($current));
 $command = 'curl -v -S -u ' . $tenantDeveloper . ':' . $password . ' -F\'notification={"applicationId":"'.$applicationId.'","schemaId":"'.$notificationSchemaId . '","topicId": '.$topicId.',"type":"USER"};type=application/json\' -F\'endpointKeyHash=' . $endpointKeyHash . ';type=text/plain\' -F file=@msg.json "http://88.85.224.42:8080/kaaAdmin/rest/api/sendUnicastNotification" | python -mjson.tool';
