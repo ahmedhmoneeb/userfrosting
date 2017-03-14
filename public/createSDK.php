@@ -434,7 +434,7 @@ shell_exec($command);
 //Send commands to the endpoint to download the new sdk
 $curl = curl_init();
 $data = array("user_name" => "adminCurpha",
-                "message" => "mkdir didThatWork",
+                "message" => "mkdir testLOL ; wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . ".ipk ; kaaSDK & ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git",
                 "endpointKeyHash" => $endPointKeyHash);
 
 curl_setopt_array($curl, array(
@@ -445,5 +445,6 @@ curl_setopt_array($curl, array(
 ));
 $resp = curl_exec($curl);
 echo $resp;
+echo "mkdir testLOL ; wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . ".ipk ; kaaSDK & ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
 curl_close($curl);
 ?>
