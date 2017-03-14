@@ -21,7 +21,6 @@ $password = "Moneeb@098";
 
 //User's user_name in UserFrosting
 $userName = $_POST['user_name'];
-echo $userName;
 //$userName = "ahmed1234";
 //Tenant Info
 $tenantName = $userName . "_tenant";
@@ -58,7 +57,6 @@ curl_setopt_array($curl, array(
     CURLOPT_USERPWD => "a.moneeb:Moneeb@098"
 ));
 $resp = curl_exec($curl);
-echo $resp;
 $allTenants = json_decode($resp,true);
 foreach ($allTenants as $tenant)
 {
@@ -76,7 +74,6 @@ curl_setopt_array($curl, array(
     CURLOPT_CUSTOMREQUEST => "POST"
 ));
 $resp = curl_exec($curl);
-echo $resp;
 $allAdmins = json_decode($resp,true);
 foreach ($allAdmins as $admin)
 {
@@ -93,7 +90,6 @@ curl_setopt_array($curl, array(
     CURLOPT_USERPWD => "$tenantAdmin:$password"
 ));
 $resp = curl_exec($curl);
-echo $resp;
 $allApplications = json_decode($resp,true);
 foreach ($allApplications as $application)
 {
@@ -111,7 +107,6 @@ curl_setopt_array($curl, array(
     CURLOPT_USERPWD => "$tenantDeveloper:$password"
 ));
 $resp = curl_exec($curl);
-echo $resp;
 $allNotificationSchemas = json_decode($resp,true);
 $notificationSchemaId = $allNotificationSchemas[1]["id"];
 $notificationSchemaType = $allNotificationSchemas[1]["type"];
@@ -125,7 +120,6 @@ curl_setopt_array($curl, array(
     CURLOPT_USERPWD => "$tenantDeveloper:$password"
 ));
 $resp = curl_exec($curl);
-echo $resp;
 $allTopics = json_decode($resp,true);
 foreach ($allTopics as $topic)
 {
