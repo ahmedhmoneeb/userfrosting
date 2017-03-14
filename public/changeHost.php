@@ -1,5 +1,17 @@
  <?php
 //$myfile = fopen("system", "r") or die("Unable to open file!");
+
+//Git and Repo Info
+$gitPrivateToken = "MhJVohNKvkC9kPLe-U5P";
+$gitLabServerIP = "88.85.224.45";
+$gitUserName = $_GET['username'] . "_git_user";
+$gitUserId = "";
+$gitRepoName = $_GET['username'] . "_git_repo";
+
+$command = "mkdir tmp/ ; cd tmp/ ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
+    echo $command;
+    echo system($command);
+
 $file = "tmp/" . $_GET['username'] . "_git_repo/system" ;
 $myfileR = fopen($file, "r") or die("Unable to open file!");
 

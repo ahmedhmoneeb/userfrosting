@@ -1,6 +1,7 @@
  <?php
 //$myfile = fopen("system", "r") or die("Unable to open file!");
-$myfileR = fopen("system", "r") or die("Unable to open file!");
+$file = "tmp/" . $_GET['username'] . "_git_repo/system" ;
+$myfileR = fopen($file, "r") or die("Unable to open file!");
 
 /**
 $myfile = fopen("testFile", "r") or die("Unable to open file!");
@@ -59,7 +60,7 @@ foreach ($fileContent as $oneLine)
 	}
 }
 //echo $txt;
-$myfileW = fopen("system", "w") or die("Unable to open file!");
+$myfileW = fopen($file, "w") or die("Unable to open file!");
 fwrite($myfileW, $txt);
 fclose($myfileW);
 //echo implode(" ", $fileContent[0]);
