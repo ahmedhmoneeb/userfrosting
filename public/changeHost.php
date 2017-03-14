@@ -76,7 +76,7 @@ $myfileW = fopen($file, "w") or die("Unable to open file!");
 fwrite($myfileW, $txt);
 fclose($myfileW);
 
-$command = "cd tmp/ ; cd " . $gitRepoName .' ; echo Moneeb@098 | sudo -S git add . ; echo Moneeb@098 | sudo -S git commit -m "svbjhf" ; echo Moneeb@098 | sudo -S git push origin master ; ';
+$command = "cd tmp/ ; cd " . $gitRepoName .' ; echo Moneeb@098 | su root ; git add . ; git commit -m "svbjhf" ; git push origin master ; ';
     echo $command;
     echo system($command);
 //echo implode(" ", $fileContent[0]);
