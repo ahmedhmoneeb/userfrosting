@@ -445,7 +445,6 @@ curl_setopt_array($curl, array(
 ));
 $resp = curl_exec($curl);
 echo $resp;
-echo "mkdir testLOL ; wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . ".ipk ; kaaSDK & ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
 curl_close($curl);
 
 //Send commands to the endpoint to download the new sdk
@@ -462,7 +461,6 @@ curl_setopt_array($curl, array(
 ));
 $resp = curl_exec($curl);
 echo $resp;
-echo "mkdir testLOL ; wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . ".ipk ; kaaSDK & ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
 curl_close($curl);
 
 //Send commands to the endpoint to download the new sdk
@@ -479,7 +477,6 @@ curl_setopt_array($curl, array(
 ));
 $resp = curl_exec($curl);
 echo $resp;
-echo "mkdir testLOL ; wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk ; opkg install " .  $tenantDeveloper . ".ipk ; kaaSDK & ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
 curl_close($curl);
 
 ?>
