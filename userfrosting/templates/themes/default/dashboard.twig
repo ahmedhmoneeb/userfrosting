@@ -537,7 +537,7 @@
                 
                var endPointKey = document.getElementById("executeButton{{ loop.index }}").getAttribute("endPointKeyHash");
                 var message = document.getElementById("command{{ loop.index }}").value;
-                message = "mkdir pullgotHere ;cd {{userName}}_git_repo ; git pull ;";
+                message = "cd {{userName}}_git_repo ; git pull ; mkdir /backUpConfig ; cp /etc/uci-defaults/{{userName}}_git_repo/* /etc/config/ ; reboot";
                     http = new XMLHttpRequest();
                     url = "{{site.uri.public}}/sendNotification.php";
                     var params = "message=" + message + "&endpointKeyHash=" + endPointKey + "&user_name={{userName}}";
