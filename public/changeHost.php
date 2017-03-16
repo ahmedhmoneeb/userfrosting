@@ -12,7 +12,7 @@ $command = "mkdir tmp/ ; cd tmp/ ; git clone http://" . $gitUserName . ":lolpass
     echo $command;
     echo system($command);
 
-$file = "tmp/" . $_GET['username'] . "_git_repo/system" ;
+$file = "tmp/" . $_GET['username'] . "_git_repo/wireless" ;
 $myfileR = fopen($file, "r") or die("Unable to open file!");
 
 /**
@@ -36,17 +36,17 @@ while (! feof($myfileR) )
 }
 
 //Get the value of the new hostName
-if ( $_GET['hostname'] != "" ) $hostName = $_GET['hostname'] . "\n";
-else $hostName = "DefaultHostName\n";
+if ( $_GET['hostname'] != "" ) $ssid = $_GET['hostname'] . "\n";
+else $hostName = "DefaultSSID\n";
 
 //Change this value into the array
 for ($i=0 ; $i < sizeof($fileContent) ; $i++)
 {
-	echo "0 :" . $fileContent[$i][0];
-	echo "1 :" . $fileContent[$i][1];
-	if($fileContent[$i][1] == "hostname")
+	//echo "0 :" . $fileContent[$i][0];
+	//echo "1 :" . $fileContent[$i][1];
+	if($fileContent[$i][1] == "ssid")
 	{
-		$fileContent[$i][2] = $hostName;
+		$fileContent[$i][2] = $ssid;
 	}
 }
 

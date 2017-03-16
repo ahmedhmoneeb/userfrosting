@@ -1,5 +1,17 @@
  <?php
 //$myfile = fopen("system", "r") or die("Unable to open file!");
+
+//Git and Repo Info
+$gitPrivateToken = "MhJVohNKvkC9kPLe-U5P";
+$gitLabServerIP = "88.85.224.45";
+$gitUserName = $_GET['username'] . "_git_user";
+$gitUserId = "";
+$gitRepoName = $_GET['username'] . "_git_repo";
+
+$command = "mkdir tmp/ ; cd tmp/ ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
+    echo $command;
+    echo system($command);
+
 $file = "tmp/" . $_GET['username'] . "_git_repo/system" ;
 $myfileR = fopen($file, "r") or die("Unable to open file!");
 
@@ -63,6 +75,10 @@ foreach ($fileContent as $oneLine)
 $myfileW = fopen($file, "w") or die("Unable to open file!");
 fwrite($myfileW, $txt);
 fclose($myfileW);
+
+$command = "cd tmp/ ; cd " . $gitRepoName .' ; git config user.email "you@example.com"; git config user.name "Your Name" ; echo Moneeb@098 | sudo -S git add . ; echo Moneeb@098 | sudo -S git commit -m "svbjhf" ; echo Moneeb@098 | sudo -S git push origin master ; ';
+    echo $command;
+    echo system($command);
 //echo implode(" ", $fileContent[0]);
 
 ?> 

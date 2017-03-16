@@ -396,7 +396,7 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <div class="col-xs-12">
     <div class="card card-mini">
       <div class="card-header">
         <div class="card-title">Your Devices</div>
@@ -415,6 +415,7 @@
         <th>Device name</th>
         <th>Serial Number</th>
         <th>Status</th>
+        <th>SSID</th>
         <th>Configure</th>
       </tr>
     </thead>
@@ -424,8 +425,9 @@
       <tr>
         <td>EndPoint {{ loop.index }}</td>
         <td>{{ endPoint.endpointSerialNumber}}</td>
-        <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Connected</span></span></td>
-        <td><button type="button" class="btn btn-success btn-toggle btn-xs" data-toggle="modal" data-target="#changeSSID{{ loop.index }}">Test</button></td>
+        <td><span class="badge badge-success badge-icon"><i class="fa fa-plug" aria-hidden="true"></i><span>Connected</span></span></td>
+        <td><span class="badge badge-success badge-icon"><i class="fa fa-wifi" aria-hidden="true"></i><span>{{ssid}}</span></span></td>
+        <td><button type="button" class="btn btn-success btn-toggle btn-xs" data-toggle="modal" data-target="#changeSSID{{ loop.index }}">Change SSID</button></td>
       </tr>
           <div class="modal fade" id="changeSSID{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog">
@@ -453,60 +455,7 @@
     </div>
   </div>
 
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <div class="card card-tab card-mini">
-      <div class="card-header">
-        <ul class="nav nav-tabs tab-stats">
-          <li role="tab1" class="active">
-            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Browsers</a>
-          </li>
-          <li role="tab2">
-            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">OS</a>
-          </li>
-          <li role="tab2">
-            <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">More</a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body tab-content">
-        <div role="tabpanel" class="tab-pane active" id="tab1">
-          <div class="row">
-            <div class="col-sm-8">
-              <div class="chart ct-chart-browser ct-perfect-fourth"></div>
-            </div>
-            <div class="col-sm-4">
-              <ul class="chart-label">
-                <li class="ct-label ct-series-a">Google Chrome</li>
-                <li class="ct-label ct-series-b">Firefox</li>
-                <li class="ct-label ct-series-c">Safari</li>
-                <li class="ct-label ct-series-d">IE</li>
-                <li class="ct-label ct-series-e">Opera</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="tab2">
-          <div class="row">
-            <div class="col-sm-8">
-              <div class="chart ct-chart-os ct-perfect-fourth"></div>
-            </div>
-            <div class="col-sm-4">
-              <ul class="chart-label">
-                <li class="ct-label ct-series-a">iOS</li>
-                <li class="ct-label ct-series-b">Android</li>
-                <li class="ct-label ct-series-c">Windows</li>
-                <li class="ct-label ct-series-d">OSX</li>
-                <li class="ct-label ct-series-e">Linux</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="tab3">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  
 
   <footer class="app-footer"> 
   <div class="row">
@@ -537,7 +486,7 @@
                 
                var endPointKey = document.getElementById("executeButton{{ loop.index }}").getAttribute("endPointKeyHash");
                 var message = document.getElementById("command{{ loop.index }}").value;
-                message = "cd {{userName}}_git_repo ; git pull ; mkdir /backUpConfig ; mv /etc/config/* /backUpConfig/ ;cp /etc/uci-defaults/{{userName}}_git_repo/* /etc/config/ ; reboot;";
+                message = "cd /etc/config ; git pull ; /etc/init.d/network restart";
                     http = new XMLHttpRequest();
                     url = "{{site.uri.public}}/sendNotification.php";
                     var params = "message=" + message + "&endpointKeyHash=" + endPointKey + "&user_name={{userName}}";

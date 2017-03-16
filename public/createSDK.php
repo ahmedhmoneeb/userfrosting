@@ -387,7 +387,7 @@ if ($gitUserId == "")
     echo $command;
     echo system($command);
     
-    $command = "cd tmp/" . $gitRepoName . '; git config user.email "someone@djfnvkdjf.com" ; git config user.name "dndkjfvf" ; git add . ; git commit -m "jhvbdhfvfd" ; git push origin master; cd ../.. ; rm -rf tmp;';
+    $command = "cd tmp/" . $gitRepoName . '; git config user.email "someone@djfnvkdjf.com" ; git config user.name "dndkjfvf" ; git add . ; git commit -m "firstCommit" ; git push origin master; cd ../.. ; rm -rf tmp;';
     echo $command;
     echo system($command);
 
@@ -477,6 +477,24 @@ curl_setopt_array($curl, array(
 ));
 $resp = curl_exec($curl);
 echo $resp;
+echo "git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
+curl_close($curl);
+
+//Send commands to the endpoint to download the new sdk
+$curl = curl_init();
+$data = array("user_name" => "adminCurpha",
+                "message" => "mv /etc/config/ /configBackup ; mv " . $gitRepoName ." /etc/config/;",
+                "endpointKeyHash" => $endPointKeyHash);
+
+curl_setopt_array($curl, array(
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_URL => 'http://10.0.0.27/userfrosting/public/sendNotification.php',
+    CURLOPT_CUSTOMREQUEST => "POST",
+    CURLOPT_POSTFIELDS => $data
+));
+$resp = curl_exec($curl);
+echo $resp;
+echo "git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
 curl_close($curl);
 
 ?>

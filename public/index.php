@@ -158,6 +158,16 @@ if ($applicationToken != "")
 }
 
 
+//Get The SSID of the device
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_URL => 'http://localhost/userfrosting/public/getSSID.php?username=' . $userName
+));
+$ssid = curl_exec($curl);
+curl_close($curl);
+
+
 //Get all the endpoints in this application
 if ($groupId != "")
 {
@@ -177,7 +187,7 @@ if ($groupId != "")
     }
     curl_close($curl);
     if (sizeof($allEndPoints["endpointProfilesBody"]) == 0) $app->render('dashboard.twig',array("userName" => $userName));
-    else $app->render('dashboard.twig',array("endPointsData" => $endPointsData,"userName" => $userName));
+    else $app->render('dashboard.twig',array("endPointsData" => $endPointsData,"userName" => $userName, "ssid" => $ssid));
 }
 else
 {
