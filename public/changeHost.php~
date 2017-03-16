@@ -11,10 +11,6 @@ $gitRepoName = $_GET['username'] . "_git_repo";
 $command = "mkdir tmp/ ; cd tmp/ ; git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
     echo $command;
     echo system($command);
-    
-$command = "echo Moneeb@098 || -s sudo chmod 777 -R tmp";
-    echo $command;
-    echo system($command);
 
 $file = "tmp/" . $_GET['username'] . "_git_repo/wireless" ;
 $myfileR = fopen($file, "r") or die("Unable to open file!");
