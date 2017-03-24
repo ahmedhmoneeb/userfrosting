@@ -387,7 +387,7 @@ if ($gitUserId == "")
     echo $command;
     echo system($command);
     
-    $command = "cd tmp/" . $gitRepoName . '; git config user.email "someone@djfnvkdjf.com" ; git config user.name "dndkjfvf" ; git add . ; git commit -m "firstCommit" ; git push origin master; cd ../.. ; rm -rf tmp;';
+    $command = "cd tmp/" . $gitRepoName . '; git config user.email "someone@djfnvkdjf.com" ; git config user.name "dndkjfvf" ; git add . ; git commit -m "firstCommit" ; git push origin master; cd ../.. ;';
     echo $command;
     echo system($command);
 
@@ -434,7 +434,7 @@ shell_exec($command);
 //Send commands to the endpoint to download the new sdk
 $curl = curl_init();
 $data = array("user_name" => "adminCurpha",
-                "message" => "mkdir testLOL ; wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk",
+                "message" => "wget http://88.85.224.42/userfrosting/public/downloads/" . $tenantDeveloper . ".ipk",
                 "endpointKeyHash" => $endPointKeyHash);
 
 curl_setopt_array($curl, array(
@@ -477,7 +477,6 @@ curl_setopt_array($curl, array(
 ));
 $resp = curl_exec($curl);
 echo $resp;
-echo "git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
 curl_close($curl);
 
 //Send commands to the endpoint to download the new sdk
@@ -494,7 +493,6 @@ curl_setopt_array($curl, array(
 ));
 $resp = curl_exec($curl);
 echo $resp;
-echo "git clone http://" . $gitUserName . ":lolpassword@" . $gitLabServerIP . "/" . $gitUserName ."/" . $gitRepoName .".git";
 curl_close($curl);
 
 ?>

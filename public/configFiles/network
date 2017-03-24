@@ -10,9 +10,6 @@ config interface 'lan'
 	option type 'bridge'
 	option proto 'dhcp'
 
-
-
-
 config interface 'wan'
 	option ifname 'eth1'
 	option proto 'dhcp'

@@ -7,7 +7,7 @@
     {# By putting this in a special block, we ensure that it will be set AFTER the default values are set in the parent template, 
     but BEFORE the page itself is rendered. #}    
     {% set page = page | merge({
-        "title"       : "Dashboard",
+        "title"       : "Configuration",
         "description" : "Your user dashboard."
     }) %}
     {{ parent() }}
@@ -37,27 +37,30 @@
         <div class="card-header">
           <ul class="nav nav-tabs">
             <li role="tab1" class="active">
-              <a href="#wifi" aria-controls="wifi" role="tab" data-toggle="tab">Wifi</a>
+              <a href="#wireless" aria-controls="wireless" role="tab" data-toggle="tab">Wireless</a>
             </li>
             <li role="tab1">
-              <a href="#security" aria-controls="security" role="tab" data-toggle="tab">Security</a>
+              <a href="#firewall" aria-controls="firewall" role="tab" data-toggle="tab">Firewall</a>
             </li>
             <li role="tab2">
-              <a href="#camera" aria-controls="camera" role="tab" data-toggle="tab">Camera</a>
+              <a href="#network" aria-controls="network" role="tab" data-toggle="tab">Network</a>
             </li>
             </li>
             <li role="tab2">
-              <a href="#smartHome" aria-controls="smartHome" role="tab" data-toggle="tab">Smart Home</a>
+              <a href="#test" aria-controls="test" role="tab" data-toggle="tab">Test</a>
             </li>
           </ul>
         </div>
+        
         <div class="card-body tab-content no-padding">
-          <div role="tabpanel" class="tab-pane active" id="wifi">
+        
+        <!--Wireless-->
+          <div role="tabpanel" class="tab-pane active" id="wireless">
              <div class="card-body no-padding">
-          <div class="table-responsive">
-  <table class="table card-table">
-    <thead>
-      <tr>
+                <div class="table-responsive">
+                    <table class="table card-table">
+                        <thead>
+                            <tr>
         <th>Device name</th>
         <th>Amount</th>
         <th>Status</th>
@@ -110,13 +113,16 @@
 </div>
         </div>
           </div>
-          <div role="tabpanel" class="tab-pane" id="security">
+          <!-- End of wireless -->
+          
+          <!--Firewall -->
+          <div role="tabpanel" class="tab-pane" id="firewall">
             Security
           </div>
-          <div role="tabpanel" class="tab-pane" id="camera">
+          <div role="tabpanel" class="tab-pane" id="network">
             Camera
           </div>
-          <div role="tabpanel" class="tab-pane" id="smartHome">
+          <div role="tabpanel" class="tab-pane" id="test">
             Smart Home
           </div>
         </div>
@@ -130,7 +136,6 @@
 
   </div>
 {% endblock %}
-
 
 {% block page_scripts %}
  <script type="text/javascript" src="js/vendor.js"></script>

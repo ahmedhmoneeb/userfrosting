@@ -17,7 +17,14 @@
   <div class="app app-default">
 
 
-
+<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
+  <div class="dropdown-background">
+    <div class="bg"></div>
+  </div>
+  <div class="dropdown-container">
+    {{list}}
+  </div>
+</script>
 <div class="app-container">
 {% include 'components/dashboard/sideBar.twig' %}
 {% include 'components/dashboard/topBar.twig' %}
@@ -235,38 +242,22 @@
 
   </div>
 {% endblock %}
-
 {% block page_scripts %}
- <script type="text/javascript" src="js/vendor.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
+    <script src="{{site.uri.js}}/morris-data.js"></script>
+    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
     <script>
             {% for endPoint in endPointsData %}
                 document.getElementById("executeButton{{ loop.index }}").addEventListener("click",function() { 
-                document.getElementById("executeButton{{ loop.index }}").disabled = true;
-                
-                var http = new XMLHttpRequest();
-                var hostName = document.getElementById("command{{ loop.index }}").value;
-                var url = "{{site.uri.public}}/changeHost.php?username={{userName}}&hostname=" + hostName;
-                http.open("GET", url, true);
-                http.send(params);
-                
-                
                var endPointKey = document.getElementById("executeButton{{ loop.index }}").getAttribute("endPointKeyHash");
                 var message = document.getElementById("command{{ loop.index }}").value;
-                message = "cd /etc/config ; git pull ; /etc/init.d/network restart";
-                    http = new XMLHttpRequest();
-                    url = "{{site.uri.public}}/sendNotification.php";
+                    var http = new XMLHttpRequest();
+                    var url = "{{site.uri.public}}/sendNotification.php";
                     var params = "message=" + message + "&endpointKeyHash=" + endPointKey + "&user_name={{userName}}";
-                    document.getElementById("loadingIcon{{ loop.index }}").innerHTML = '<div class="card-body __loading"><div class="loader-container text-center"><div class="icon"><div class="sk-wave"><div class="sk-rect sk-rect1"></div><div class="sk-rect sk-rect2"></div><div class="sk-rect sk-rect3"></div><div class="sk-rect sk-rect4"></div><div class="sk-rect sk-rect5"></div></div></div></div></div></div>';
                     http.open("POST", url, true);
                     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     http.onreadystatechange = function() {//Call a function when the state changes.
     if(http.readyState == 4 && http.status == 200) {
-        //alert("Command Sent Successfully!!");
-        document.getElementById("loadingIcon{{ loop.index }}").innerHTML = '';
-        document.getElementById("alertUser{{ loop.index }}").setAttribute("class", "alert alert-success");
-        document.getElementById("alertUser{{ loop.index }}").setAttribute("role", "alert");
-        document.getElementById("alertUser{{ loop.index }}").innerHTML = "Command Send Yay !!";
+        alert("Command Sent Successfully!!");
     }
 }
 http.send(params);
@@ -279,10 +270,6 @@ document.getElementById("addDeviceButton").addEventListener("click",addDevice);
 
 function addDevice()
 {
-    document.getElementById("addDeviceButton").disabled = true;
-    document.getElementById("progressDiv").setAttribute("class", "progress");
-    document.getElementById("progressBar").setAttribute("style", "width : 10%");
-
     var serialNumber = document.getElementById("deviceSerialNumber").value;
     
     url = "{{site.uri.public}}/checkEndPoint.php" + "?serial_num=" + serialNumber;
@@ -292,7 +279,6 @@ function addDevice()
 			ob.open("GET",url,true);
 			ob.addEventListener("readystatechange",processResponse);
 			ob.send();
-			document.getElementById("progressBar").setAttribute("style", "width : 20%");
 		}
 		catch(exception)
 		{
@@ -303,18 +289,13 @@ function addDevice()
     {
     	if(ob.readyState==4)
     	{
-    	    document.getElementById("progressBar").setAttribute("style", "width : 30%");
     		resp = ob.responseText;
     		if (resp == 0)
     		{
-    		    //window.alert("error");
-    		    document.getElementById("alertAddDevice").setAttribute("class", "alert alert-danger");
-                document.getElementById("alertAddDevice").setAttribute("role", "alert");
-                document.getElementById("alertAddDevice").innerHTML = "Error, Wrong Serial Number or Device not connected";
+    		    window.alert("error");
     		}
     		else
     		{
-    		    document.getElementById("progressBar").setAttribute("style", "width : 70%");
     		    //window.alert('{{userName}} ' + resp);
     		    var http = new XMLHttpRequest();
                 var url = "{{site.uri.public}}/createSDK.php";
@@ -325,10 +306,6 @@ function addDevice()
                     {//Call a function when the state changes.
                         if(http.readyState == 4 && http.status == 200) 
                         {
-                            document.getElementById("progressBar").setAttribute("style", "width : 100%");
-                            document.getElementById("alertAddDevice").setAttribute("class", "alert alert-success");
-                            document.getElementById("alertAddDevice").setAttribute("role", "alert");
-                            document.getElementById("alertAddDevice").innerHTML = "Yaaaaaay added successfully";
                             //window.alert("Info Sent Successfully");
                         }
     		        }
