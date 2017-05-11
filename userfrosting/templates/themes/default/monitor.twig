@@ -14,224 +14,456 @@
 {% endblock %}
 
 {% block content %}
-  <div class="app app-default">
+
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
+
+            <!-- Page-Title -->
+            <div class="row">
+                {% include 'components/common/alerts.twig' %}
+                <div class="col-sm-12">
+                    <div class="btn-group pull-right m-t-15">
+                        <button type="button" class="btn btn-default dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Settings <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
+                        <ul class="dropdown-menu drop-menu-right" role="menu">
+                            <li><a href="#">Action 2</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+
+                     
+                    <h4 class="page-title">Dashboard</h4>
+                    <p class="text-muted page-title-alt">
+                        Welcome to  Ubold admin panel !                        
+                    </p>
+                    
+                </div>
+            </div>
+            
+            <!-- row 1 -->
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="card-box">
+                        <h4 class="text-dark header-title m-t-0">Total Sales</h4>
+
+                        <div class="text-center">
+                            <ul class="list-inline chart-detail-list">
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #387aa3;"></i>Desktops</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #649eb9;"></i>Tablets</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #9dc2d3;"></i>Mobiles</h5>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div id="morris-area-with-dotted" style="height: 300px;"></div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card-box">
+                        <h4 class="text-dark header-title m-t-0">Sales Analytics</h4>
+                        <div class="text-center">
+                            <ul class="list-inline chart-detail-list">
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #d97b7b;"></i>Desktops</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #c4e2f9;"></i>Tablets</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #f3d57c;"></i>Mobiles</h5>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div id="morris-bar-stacked" style="height: 303px;">
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- row 2 -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card-box">
+                        <div class="bar-widget">
+                            <div class="table-box">
+                                <div class="table-detail">
+                                    <div class="iconbox bg-info">
+                                        <i class="icon-layers"></i>
+                                    </div>
+                                </div>
+
+                                <div class="table-detail">
+                                   <h4 class="m-t-0 m-b-5"><b>1256</b></h4>
+                                   <h5 class="text-muted m-b-0 m-t-0">Visiters</h5>
+                                </div>
+                                <div class="table-detail text-right">
+                                    <span data-plugin="peity-bar" data-colors="#119ee0,#c7e4fa" data-width="120" data-height="45">5,3,9,6,5,9,7,3,5,2,9,7,2,1</span>
+                                </div>
 
 
 
-<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
-  <div class="dropdown-background">
-    <div class="bg"></div>
-  </div>
-  <div class="dropdown-container">
-    {{list}}
-  </div>
-</script>
-<div class="app-container">
-{% include 'components/dashboard/sideBar.twig' %}
-{% include 'components/dashboard/topBar.twig' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card-box">
+                        <div class="bar-widget">
+                            <div class="table-box">
+                                <div class="table-detail">
+                                    <div class="iconbox bg-custom">
+                                        <i class="icon-layers"></i>
+                                    </div>
+                                </div>
+
+                                <div class="table-detail">
+                                   <h4 class="m-t-0 m-b-5"><b>1256</b></h4>
+                                   <h5 class="text-muted m-b-0 m-t-0">Visiters</h5>
+                                </div>
+                                <div class="table-detail text-right">
+                                    <span data-plugin="peity-pie" data-colors="#5fbeaa,#ebeff2" data-width="50" data-height="45">1/5</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card-box">
+                        <div class="bar-widget">
+                            <div class="table-box">
+                                <div class="table-detail">
+                                    <div class="iconbox bg-danger">
+                                        <i class="icon-layers"></i>
+                                    </div>
+                                </div>
+
+                                <div class="table-detail">
+                                   <h4 class="m-t-0 m-b-5"><b>1256</b></h4>
+                                   <h5 class="text-muted m-b-0 m-t-0">Visiters</h5>
+                                </div>
+                                <div class="table-detail text-right">
+                                    <span data-plugin="peity-donut" data-colors="#f05050,#ebeff2" data-width="50" data-height="45">1/5</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- row 3 
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <div class="card-box">
+                        <h4 class="text-dark header-title m-t-0 m-b-30">Daily Sales</h4>
+
+                        <div class="widget-chart text-center">
+                            <div id="sparkline3"></div>
+                            <ul class="list-inline m-t-15">
+                                <li>
+                                    <h5 class="text-muted m-t-20">Target</h5>
+                                    <h4 class="m-b-0">$1000</h4>
+                                </li>
+                                <li>
+                                    <h5 class="text-muted m-t-20">Last week</h5>
+                                    <h4 class="m-b-0">$523</h4>
+                                </li>
+                                <li>
+                                    <h5 class="text-muted m-t-20">Last Month</h5>
+                                    <h4 class="m-b-0">$965</h4>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card-box">
+                        <h4 class="text-dark  header-title m-t-0 m-b-30">Weekly Sales</h4>
+
+                        <div class="widget-chart text-center">
+                            <div id="sparkline2"></div>
+                            <ul class="list-inline m-t-15">
+                                <li>
+                                    <h5 class="text-muted m-t-20">Target</h5>
+                                    <h4 class="m-b-0">$1000</h4>
+                                </li>
+                                <li>
+                                    <h5 class="text-muted m-t-20">Last week</h5>
+                                    <h4 class="m-b-0">$523</h4>
+                                </li>
+                                <li>
+                                    <h5 class="text-muted m-t-20">Last Month</h5>
+                                    <h4 class="m-b-0">$965</h4>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card-box">
+                        <h4 class="text-dark  header-title m-t-0 m-b-30">Monthly Sales</h4>
+
+                        <div class="widget-chart text-center">
+                            <div id="sparkline1"></div>
+                            <ul class="list-inline m-t-15">
+                                <li>
+                                    <h5 class="text-muted m-t-20">Target</h5>
+                                    <h4 class="m-b-0">$1000</h4>
+                                </li>
+                                <li>
+                                    <h5 class="text-muted m-t-20">Last week</h5>
+                                    <h4 class="m-b-0">$523</h4>
+                                </li>
+                                <li>
+                                    <h5 class="text-muted m-t-20">Last Month</h5>
+                                    <h4 class="m-b-0">$965</h4>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <script>
+                    var context = canvas.getContext('2d');
+                    context.fillStyle = "#000000";
+                    context.fill();
+                </script>
 
 
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card card-tab card-mini">
-        <div class="card-header">
-          <ul class="nav nav-tabs">
-            <li role="tab1" class="active">
-              <a href="#wifi" aria-controls="wifi" role="tab" data-toggle="tab">Wifi</a>
-            </li>
-            <li role="tab1">
-              <a href="#security" aria-controls="security" role="tab" data-toggle="tab">Security</a>
-            </li>
-            <li role="tab2">
-              <a href="#camera" aria-controls="camera" role="tab" data-toggle="tab">Camera</a>
-            </li>
-            </li>
-            <li role="tab2">
-              <a href="#smartHome" aria-controls="smartHome" role="tab" data-toggle="tab">Smart Home</a>
-            </li>
-          </ul>
-        </div>
-        <div class="card-body tab-content no-padding">
-          <div role="tabpanel" class="tab-pane active" id="wifi">
-             <div class="card-body no-padding">
-          <div class="table-responsive">
-  <table class="table card-table">
-    <thead>
-      <tr>
-        <th>Device name</th>
-        <th>Amount</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Device1</td>
-        <td>2</td>
-        <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Connected</span></span></td>
-      </tr>
-      
-            <p id="endPointCounter" endPointCount = "{{endPointsData|length}}"></p>
-                        {% for endPoint in endPointsData %}
-                            <tr>
-        <td>EndPoint {{ loop.index }}</td>
-        <td>{{ endPoint.endpointSerialNumber}}</td>
-        <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Connected</span></span></td>
-      </tr>
-                             
-                        {% endfor %}
-      
-      <tr>
-        <td>Device2</td>
-        <td>5</td>
-        <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>UnConfigured</span></span></td>
-      </tr>
-      <tr>
-        <td>Device3</td>
-        <td>1</td>
-        <td><span class="badge badge-info badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>On Hold</span></span></td>
-      </tr>
-      <tr>
-        <td>Device4</td>
-        <td>1</td>
-        <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Disconnected</span></span></td>
-      </tr>
-      <tr>
-        <td>Device5</td>
-        <td>6</td>
-        <td><span class="badge badge-primary badge-icon"><i class="fa fa-truck" aria-hidden="true"></i><span>statustest</span></span></td>
-      </tr>
-      <tr>
-        <td>Device6</td>
-        <td>4</td>
-        <td><span class="badge badge-info  badge-icon"><i class="fa fa-credit-card" aria-hidden="true"></i><span>statusTest</span></span></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-        </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="security">
-            Security
-          </div>
-          <div role="tabpanel" class="tab-pane" id="camera">
-            Camera
-          </div>
-          <div role="tabpanel" class="tab-pane" id="smartHome">
-            Smart Home
-          </div>
-        </div>
-      </div>
-    </div>
+            </div>-->
+            
+            <!-- row 4 -->
+            <div class="row">
+                <div class="col-lg-12">
+                        <div class="card-box">
+                            <h4 class="text-dark header-title m-t-0">Total Revenue</h4>
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="text-center">
+                                        <ul class="list-inline chart-detail-list">
+                                            <li>
+                                                <h5><i class="fa fa-circle m-r-5" style="color: #1d2c57;"></i>Desktops</h5>
+                                            </li>
+                                            <li>
+                                                <h5><i class="fa fa-circle m-r-5" style="color: #0b62a4;"></i>Tablets</h5>
+                                            </li>
+                                            <li>
+                                                <h5><i class="fa fa-circle m-r-5" style="color: #7a92a3;"></i>Mobiles</h5>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div id="morris-area-with-dotted" style="height: 300px;"></div>
+
+                                </div>
 
 
-    
-  </div>
-</div>
 
-  </div>
+                                 <div class="col-md-4">
+
+                                    <p class="font-600">iMacs <span class="text-primary pull-right">80%</span></p>
+                                    <div class="progress m-b-30">
+                                      <div class="progress-bar progress-bar-primary progress-animated wow animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                      </div>
+                                    </div>
+
+                                    <p class="font-600">iBooks <span class="text-pink pull-right">50%</span></p>
+                                    <div class="progress m-b-30">
+                                      <div class="progress-bar progress-bar-pink progress-animated wow animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                      </div>
+                                    </div>
+
+                                    <p class="font-600">iPhone 5s <span class="text-info pull-right">70%</span></p>
+                                    <div class="progress m-b-30">
+                                      <div class="progress-bar progress-bar-info progress-animated wow animated" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                      </div>
+                                    </div>
+
+                                    <p class="font-600">iPhone 6 <span class="text-warning pull-right">65%</span></p>
+                                    <div class="progress m-b-30">
+                                      <div class="progress-bar progress-bar-warning progress-animated wow animated" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                                      </div>
+                                    </div>
+
+                                    <p class="font-600">iPhone 6s <span class="text-success pull-right">40%</span></p>
+                                    <div class="progress m-b-30">
+                                      <div class="progress-bar progress-bar-success progress-animated wow animated" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                      </div>
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </div>
+
+    </div> <!-- container -->
+
+</div> 
+
+            </div>
+            
+            <!-- row 5 -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="portlet">
+                        <!-- /primary heading -->
+                        <div class="portlet-heading">
+                            <h3 class="portlet-title text-dark"> Total Revenue </h3>
+                            <div class="portlet-widgets">
+                                <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                <span class="divider"></span>
+                                <a data-toggle="collapse" data-parent="#accordion1" href="#bg-default1"><i class="ion-minus-round"></i></a>
+                                <span class="divider"></span>
+                                <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="bg-default1" class="panel-collapse collapse in">
+                            <div class="portlet-body">
+                                <div class="text-center">
+                                    <ul class="list-inline chart-detail-list">
+                                        <li>
+                                            <h5><i class="fa fa-circle m-r-5" style="color: #da7f7f;"></i>Series A</h5>
+                                        </li>
+                                        <li>
+                                            <h5><i class="fa fa-circle m-r-5" style="color: #f2d478;"></i>Series B</h5>
+                                        </li>
+                                        <li>
+                                            <h5><i class="fa fa-circle m-r-5" style="color: #c6e3fa;"></i>Series C</h5>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="morris-bar-example" style="height: 300px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Portlet -->
+                </div>
+                <!-- col -->
+                <div class="col-lg-6">
+                    <div class="portlet">
+                        <!-- /primary heading -->
+                        <div class="portlet-heading">
+                            <h3 class="portlet-title text-dark"> Sales Analytics </h3>
+                            <div class="portlet-widgets">
+                                <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                <span class="divider"></span>
+                                <a data-toggle="collapse" data-parent="#accordion1" href="#bg-default"><i class="ion-minus-round"></i></a>
+                                <span class="divider"></span>
+                                <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="bg-default" class="panel-collapse collapse in">
+                            <div class="portlet-body">
+                                <div class="text-center">
+                                    <ul class="list-inline chart-detail-list">
+                                        <li>
+                                            <h5><i class="fa fa-circle m-r-5" style="color: #387aa3;"></i>Mobiles</h5>
+                                        </li>
+                                        <li>
+                                            <h5><i class="fa fa-circle m-r-5" style="color: #9cbac7;"></i>Tablets</h5>
+                                        </li>
+                                        <li>
+                                            <h5><i class="fa fa-circle m-r-5" style="color: #dee8ed;"></i>Desktops</h5>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="morris-area-example" style="height: 300px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Portlet -->
+                </div>
+                <!-- col -->
+            </div>
+            
+            <!-- row 6 -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="portlet"><!-- /primary heading -->
+                        <div class="portlet-heading">
+                            <h3 class="portlet-title text-dark">
+                                Multiple Statistics
+                            </h3>
+                            <div class="portlet-widgets">
+                                <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                <span class="divider"></span>
+                                <a data-toggle="collapse" data-parent="#accordion1" href="#portlet1"><i class="ion-minus-round"></i></a>
+                                <span class="divider"></span>
+                                <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="portlet1" class="panel-collapse collapse in">
+                            <div class="portlet-body">
+                                <div id="website-stats" style="height: 320px;" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="portlet"><!-- /primary heading -->
+                        <div class="portlet-heading">
+                            <h3 class="portlet-title text-dark">
+                                Realtime Statistics
+                            </h3>
+                            <div class="portlet-widgets">
+                                <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                                <span class="divider"></span>
+                                <a data-toggle="collapse" data-parent="#accordion1" href="#portlet2"><i class="ion-minus-round"></i></a>
+                                <span class="divider"></span>
+                                <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="portlet2" class="panel-collapse collapse in">
+                            <div class="portlet-body">
+                                <div id="flotRealTime" style="height: 320px;" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 {% endblock %}
 
 
 {% block page_scripts %}
- <script type="text/javascript" src="js/vendor.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-    <script>
-            {% for endPoint in endPointsData %}
-                document.getElementById("executeButton{{ loop.index }}").addEventListener("click",function() { 
-                document.getElementById("executeButton{{ loop.index }}").disabled = true;
-                
-                var http = new XMLHttpRequest();
-                var hostName = document.getElementById("command{{ loop.index }}").value;
-                var url = "{{site.uri.public}}/changeHost.php?username={{userName}}&hostname=" + hostName;
-                http.open("GET", url, true);
-                http.send(params);
-                
-                
-               var endPointKey = document.getElementById("executeButton{{ loop.index }}").getAttribute("endPointKeyHash");
-                var message = document.getElementById("command{{ loop.index }}").value;
-                message = "cd /etc/config ; git pull ; /etc/init.d/network restart";
-                    http = new XMLHttpRequest();
-                    url = "{{site.uri.public}}/sendNotification.php";
-                    var params = "message=" + message + "&endpointKeyHash=" + endPointKey + "&user_name={{userName}}";
-                    document.getElementById("loadingIcon{{ loop.index }}").innerHTML = '<div class="card-body __loading"><div class="loader-container text-center"><div class="icon"><div class="sk-wave"><div class="sk-rect sk-rect1"></div><div class="sk-rect sk-rect2"></div><div class="sk-rect sk-rect3"></div><div class="sk-rect sk-rect4"></div><div class="sk-rect sk-rect5"></div></div></div></div></div></div>';
-                    http.open("POST", url, true);
-                    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    http.onreadystatechange = function() {//Call a function when the state changes.
-    if(http.readyState == 4 && http.status == 200) {
-        //alert("Command Sent Successfully!!");
-        document.getElementById("loadingIcon{{ loop.index }}").innerHTML = '';
-        document.getElementById("alertUser{{ loop.index }}").setAttribute("class", "alert alert-success");
-        document.getElementById("alertUser{{ loop.index }}").setAttribute("role", "alert");
-        document.getElementById("alertUser{{ loop.index }}").innerHTML = "Command Send Yay !!";
-    }
-}
-http.send(params);
-                       
-                       
-                       },false);
-            {% endfor %}
-
-document.getElementById("addDeviceButton").addEventListener("click",addDevice);
-
-function addDevice()
-{
-    document.getElementById("addDeviceButton").disabled = true;
-    document.getElementById("progressDiv").setAttribute("class", "progress");
-    document.getElementById("progressBar").setAttribute("style", "width : 10%");
-
-    var serialNumber = document.getElementById("deviceSerialNumber").value;
-    
-    url = "{{site.uri.public}}/checkEndPoint.php" + "?serial_num=" + serialNumber;
-		try
-		{
-			ob=new XMLHttpRequest();
-			ob.open("GET",url,true);
-			ob.addEventListener("readystatechange",processResponse);
-			ob.send();
-			document.getElementById("progressBar").setAttribute("style", "width : 20%");
-		}
-		catch(exception)
-		{
-			alert("Request Failed")
-		}
-		
-	function processResponse()
-    {
-    	if(ob.readyState==4)
-    	{
-    	    document.getElementById("progressBar").setAttribute("style", "width : 30%");
-    		resp = ob.responseText;
-    		if (resp == 0)
-    		{
-    		    //window.alert("error");
-    		    document.getElementById("alertAddDevice").setAttribute("class", "alert alert-danger");
-                document.getElementById("alertAddDevice").setAttribute("role", "alert");
-                document.getElementById("alertAddDevice").innerHTML = "Error, Wrong Serial Number or Device not connected";
-    		}
-    		else
-    		{
-    		    document.getElementById("progressBar").setAttribute("style", "width : 70%");
-    		    //window.alert('{{userName}} ' + resp);
-    		    var http = new XMLHttpRequest();
-                var url = "{{site.uri.public}}/createSDK.php";
-                var params = "user_name={{userName}}"+ "&endPointInfo=" + resp;
-                http.open("POST", url, true);
-                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                http.onreadystatechange = function() 
-                    {//Call a function when the state changes.
-                        if(http.readyState == 4 && http.status == 200) 
-                        {
-                            document.getElementById("progressBar").setAttribute("style", "width : 100%");
-                            document.getElementById("alertAddDevice").setAttribute("class", "alert alert-success");
-                            document.getElementById("alertAddDevice").setAttribute("role", "alert");
-                            document.getElementById("alertAddDevice").innerHTML = "Yaaaaaay added successfully";
-                            //window.alert("Info Sent Successfully");
-                        }
-    		        }
-    		    http.send(params);
-    	    }
-        }
-    }
-}
-    </script>
+ <script src="{{site.uri.js}}/morris-data.js"></script>
+    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script> 
+<script src="assets/js/jquery.app.js"></script>
+<script src="assets/pages/morris.init.js"></script>
 {% endblock %}

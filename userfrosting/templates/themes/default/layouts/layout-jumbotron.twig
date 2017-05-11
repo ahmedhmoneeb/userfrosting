@@ -17,15 +17,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{ page.description }}">
         <meta name="author" content="{{ page.author }}">
-        <meta name="{{csrf_key}}" content="{{csrf_token}}"> 
-        <link rel="stylesheet" type="text/css" href="../css/vendor.css">
-        <link rel="stylesheet" type="text/css" href="../css/flat-admin.css">
-
-        <title>Curpha IOT | {{ page.title }}</title>
+        <meta name="{{csrf_key}}" content="{{csrf_token}}">
+        <link rel="shortcut icon" href="../assets/images/curpha-new.png">
         
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="../images/favicon.jpeg" />
+        <title>Curpha | {{ page.title }}</title>
         
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        
+        <!-- Favicon 
+        <link rel="icon" type="image/x-icon" href="{{site.uri.favicon}}" />
+        -->
+        
+        <!-- Page stylesheets 
+        {% for item in includeCSS(page_group|default("common")) %}
+          <link rel="stylesheet" href="{{item}}" type="text/css" >
+        {% endfor %}-->
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,15 +45,22 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         
-        <!-- Header javascript (not recommended) -->
+        <!-- Header javascript (not recommended)
         {% for item in includeJSTop(page_group|default("common")) %}
           <script src="{{item}}" ></script>
-        {% endfor %}  
+        {% endfor %}  -->
+        <script src="../assets/js/jquery.min.js"></script>
+
+        <script src="../assets/js/modernizr.min.js"></script>
     </head>
     {% endblock %}
     <body>
-
+    <div class="container">
+      <!--{% include 'components/jumbotron/main-nav.twig' %}
+      <div class="jumbotron">
         {% block content %}{% endblock %}
+      </div>-->	
+    </div> <!-- /container -->
     
     {# This block is for dynamic fragments of code that lie outside of the main DOM #}
     {% block fragments %}{% endblock %}
@@ -52,7 +70,10 @@
           <div class="row">
               <div class="col-sm-6 text-center">
                   &copy; <a href="{{site.uri.public}}">Curpha</a>, {{ "now"|date("Y") }}
-              </div>     
+              </div>
+              <div class="col-sm-6 text-center">
+                  Built with <a href="#">Curpha</a>.
+              </div>        
           </div>
         </div>
     </footer>
@@ -62,7 +83,26 @@
       <script src="{{item}}" ></script>
     {% endfor %}
     {# This block allows you to create page-specific Javascript in a child template #}
-    {% block page_scripts %}{% endblock %}    
+    {% block page_scripts %}{% endblock %}
+        
+        <script>
+            var resizefunc = [];
+        </script>
+
+        <!-- jQuery -->
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/detect.js"></script>
+        <script src="../assets/js/fastclick.js"></script>
+        <script src="../assets/js/jquery.slimscroll.js"></script>
+        <script src="../assets/js/jquery.blockUI.js"></script>
+        <script src="../assets/js/waves.js"></script>
+        <script src="../assets/js/wow.min.js"></script>
+        <script src="../assets/js/jquery.nicescroll.js"></script>
+        <script src="../assets/js/jquery.scrollTo.min.js"></script>
+
+
+        <script src="../assets/js/jquery.core.js"></script>
+        <script src="../assets/js/jquery.app.js"></script> 
   </body>
 </html>
 {% endblock %}

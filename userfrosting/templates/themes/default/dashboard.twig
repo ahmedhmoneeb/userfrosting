@@ -1,4 +1,3 @@
-
 {% extends "layouts/layout-dashboard.twig" %}
 {% set page_group = "dashboard" %}
 
@@ -14,328 +13,267 @@
 {% endblock %}
 
 {% block content %}
-  <div class="app app-default">
 
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container">
 
+            <!-- Page-Title -->
+            <div class="row">
+                {% include 'components/common/alerts.twig' %}
+                <div class="col-sm-12">
+                    <div class="btn-group pull-right m-t-15">
+                        <button type="button" class="btn btn-default dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Settings <span class="m-l-5"><i class="fa fa-cog"></i></span></button>
+                        <ul class="dropdown-menu drop-menu-right" role="menu">
+                            <li><a href="#">Action 2</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
 
-<div class="app-container">
-{% include 'components/dashboard/sideBar.twig' %}
-{% include 'components/dashboard/topBar.twig' %}
-
-  <div class="btn-floating" id="help-actions">
-  <div class="btn-bg"></div>
-  <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
-    <i class="icon fa fa-plus"></i>
-    <span class="help-text">Shortcut</span>
-  </button>
-  <div class="toggle-content">
-    <ul class="actions">
-      <li><a data-toggle="modal" data-target="#addAccessPoint" href="#">Access Point</a></li>
-      <li><a data-toggle="modal" data-target="#addCamera" href="#">Camera</a></li>
-      <li><a data-toggle="modal" data-target="#addOther" href="#">Other</a></li>
-    </ul>
-  </div>
-</div>
-  
-
-
-    <div class="modal fade" id="addAccessPoint" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add New Access Point</h4>
-          </div>
-          <div class="modal-body">
-          <div class="" role="" id="alertAddDevice"></div>
-            <p>Please enter the serial number you will find at the back of the device and click "Add"</p>
-            <input class="form-control" placeholder="Serial Number" id="deviceSerialNumber">
-                <div class="" id="progressDiv">
-                        <div id="progressBar" class="progress-bar progress-bar-success  progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style=""></div>
+                     
+                    <h4 class="page-title">Dashboard</h4>
+                    <p class="text-muted page-title-alt">
+                        Welcome to  Ubold admin panel !                        
+                    </p>
+                    
                 </div>
-            <img class="img-responsive" src="images/serialNumber.PNG">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-success" id="addDeviceButton">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-        <div class="modal fade" id="addCamera" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add New Camera</h4>
-          </div>
-          <div class="modal-body">
-            <p>Coming Soon .... !!</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-success">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-        <div class="modal fade" id="addOther" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add New Device</h4>
-          </div>
-          <div class="modal-body">
-            <p>Coming Soon .... !!</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-success">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
+            </div>
+            
+            
+            
+
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="widget-bg-color-icon card-box fadeInDown animated">
+                        <div class="bg-icon bg-icon-info pull-left">
+                            <i class="md md-attach-money text-info"></i>
+                        </div>
+                        <div class="text-right">
+                            <h3 class="text-dark"><b class="counter">31,570</b></h3>
+                            <p class="text-muted">Total Revenue</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="widget-bg-color-icon card-box">
+                        <div class="bg-icon bg-icon-info pull-left">
+                            <i class="md md-add-shopping-cart text-info"></i>
+                        </div>
+                        <div class="text-right">
+                            <h3 class="text-dark"><b class="counter">280</b></h3>
+                            <p class="text-muted">Today's Sales</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="widget-bg-color-icon card-box">
+                        <div class="bg-icon bg-icon-info pull-left">
+                            <i class="md md-equalizer text-info"></i>
+                        </div>
+                        <div class="text-right">
+                            <h3 class="text-dark"><b class="counter">0.16</b>%</h3>
+                            <p class="text-muted">Conversion</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="widget-bg-color-icon card-box">
+                        <div class="bg-icon bg-icon-info pull-left">
+                            <i class="md md-remove-red-eye text-info"></i>
+                        </div>
+                        <div class="text-right">
+                            <h3 class="text-dark"><b class="counter">64,570</b></h3>
+                            <p class="text-muted">Today's Visits</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <div class="card-box">
+                        <h4 class="text-dark header-title m-t-0 m-b-30">Total Revenue</h4>
+
+                        <div class="widget-chart text-center">
+                            <input class="knob" data-width="150" data-height="150" data-linecap=round data-fgColor="#f3d57c" value="80" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15"/>
+                            <h5 class="text-muted m-t-20">Total sales made today</h5>
+                            <h2 class="font-600">$75</h2>
+                            <ul class="list-inline m-t-15">
+                                <li>
+                                    <h5 class="text-muted m-t-20">Target</h5>
+                                    <h4 class="m-b-0">$1000</h4>
+                                </li>
+                                <li>
+                                    <h5 class="text-muted m-t-20">Last week</h5>
+                                    <h4 class="m-b-0">$523</h4>
+                                </li>
+                                <li>
+                                    <h5 class="text-muted m-t-20">Last Month</h5>
+                                    <h4 class="m-b-0">$965</h4>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="card-box">
+                        <a href="#" class="pull-right btn btn-default btn-sm waves-effect waves-light">View All</a>
+                        <h4 class="text-dark header-title m-t-0">Recent Orders</h4>
+                        <p class="text-muted m-b-30 font-13">
+                            Use the button classes on an element.
+                        </p>
+
+                        <div class="table-responsive">
+                            <table class="table table-actions-bar m-b-0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Item Name</th>
+                                        <th>Up-Down</th>
+                                        <th style="min-width: 80px;">Manage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span data-plugin="peity-bar" data-colors="#f3d57c,#f3d57c" data-width="80" data-height="30">5,3,9,6,5,9,7,3,5,2</span></td>
+                                        <td><img src="assets/images/products/iphone.jpg" class="thumb-sm pull-left m-r-10" alt=""> Apple iPhone </td>
+                                        <td><span class="text-custom">+$230</span></td>
+                                        <td>
+                                            <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                            <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span data-plugin="peity-line" data-fill="#f3d57c" data-stroke="#f3d57c" data-width="80" data-height="30">0,-3,-6,-4,-5,-4,-7,-3,-5,-2</span></td>
+                                        <td><img src="assets/images/products/samsung.jpg" class="thumb-sm pull-left m-r-10" alt=""> Samsung Phone </td>
+                                        <td><span class="text-danger">-$154</span></td>
+                                        <td>
+                                            <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                            <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span data-plugin="peity-line" data-fill="#fff" data-stroke="#f3d57c" data-width="80" data-height="30">5,3,9,6,5,9,7,3,5,2</span>
+                                        <td><img src="assets/images/products/imac.jpg" class="thumb-sm pull-left m-r-10" alt=""> Apple iPhone </td>
+                                        <td><span class="text-custom">+$1850</span></td>
+                                        <td>
+                                            <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                            <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span data-plugin="peity-pie" data-colors="#f3d57c,#d87878" data-width="30" data-height="30">1/5</span></td>
+                                        <td><img src="assets/images/products/macbook.jpg" class="thumb-sm pull-left m-r-10" alt=""> Apple iPhone </td>
+                                        <td><span class="text-danger">-$560</span></td>
+                                        <td>
+                                            <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                            <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><span data-plugin="peity-bar" data-colors="#f3d57c,#d87878" data-width="80" data-height="30">5,3,9,6,5,9,7,3,5,2</span></td>
+                                        <td><img src="assets/images/products/lumia.jpg" class="thumb-sm pull-left m-r-10" alt=""> Lumia iPhone </td>
+                                        <td><span class="text-custom">+$230</span></td>
+                                        <td>
+                                            <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                            <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- end row -->
 
 
-<div class="row">
-  <div class="col-xs-12">
-    <div class="card card-banner card-chart card-green no-br">
-      <div class="card-header">
-        <div class="card-title">
-          <div class="title">Top Sale Today</div>
-        </div>
-        <ul class="card-action">
-          <li>
-            <a href="#">
-              <i class="fa fa-refresh"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <div class="ct-chart-sale"></div>
-      </div>
-    </div>
-  </div>
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="card-box">
+                        <h4 class="text-dark header-title m-t-0">Total Sales</h4>
+
+                        <div class="text-center">
+                            <ul class="list-inline chart-detail-list">
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #387aa3;"></i>Desktops</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #649eb9;"></i>Tablets</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #9dc2d3;"></i>Mobiles</h5>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div id="morris-area-with-dotted" style="height: 300px;"></div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card-box">
+                        <h4 class="text-dark header-title m-t-0">Sales Analytics</h4>
+                        <div class="text-center">
+                            <ul class="list-inline chart-detail-list">
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #d97b7b;"></i>Desktops</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #c4e2f9;"></i>Tablets</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle m-r-5" style="color: #f3d57c;"></i>Mobiles</h5>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div id="morris-bar-stacked" style="height: 303px;">
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- end row -->
+
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
 </div>
-<div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-      <a class="card card-banner card-green-light">
-  <div class="card-body">
-    <i class="icon fa fa-shopping-basket fa-4x"></i>
-    <div class="content">
-      <div class="title">Sale Today</div>
-      <div class="value"><span class="sign">$</span>420</div>
-    </div>
-  </div>
-</a>
 
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-      <a class="card card-banner card-blue-light">
-  <div class="card-body">
-    <i class="icon fa fa-thumbs-o-up fa-4x"></i>
-    <div class="content">
-      <div class="title">Page Likes</div>
-      <div class="value"><span class="sign"></span>2453</div>
-    </div>
-  </div>
-</a>
 
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-      <a class="card card-banner card-yellow-light">
-  <div class="card-body">
-    <i class="icon fa fa-user-plus fa-4x"></i>
-    <div class="content">
-      <div class="title">New Registration</div>
-      <div class="value"><span class="sign"></span>50</div>
-    </div>
-  </div>
-</a>
-
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12">
-    <div class="card card-mini">
-      <div class="card-header">
-        <div class="card-title">Your Devices</div>
-        <ul class="card-action">
-          <li>
-            <a href="{{site.uri.public}}/dashboard">
-              <i class="fa fa-refresh"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="table-responsive">
-  <table class="table card-table">
-    <thead>
-      <tr>
-        <th>Device name</th>
-        <th>Serial Number</th>
-        <th>Status</th>
-        <th>SSID</th>
-        <th>Configure</th>
-      </tr>
-    </thead>
-    <tbody>
-      <p id="endPointCounter" endPointCount = "{{endPointsData|length}}"></p>
-      {% for endPoint in endPointsData %}
-      <tr>
-        <td>EndPoint {{ loop.index }}</td>
-        <td>{{ endPoint.endpointSerialNumber}}</td>
-        <td><span class="badge badge-success badge-icon"><i class="fa fa-plug" aria-hidden="true"></i><span>Connected</span></span></td>
-        <td><span class="badge badge-success badge-icon"><i class="fa fa-wifi" aria-hidden="true"></i><span>{{ssid}}</span></span></td>
-        <td><button type="button" class="btn btn-success btn-toggle btn-xs" data-toggle="modal" data-target="#changeSSID{{ loop.index }}">Change SSID</button></td>
-      </tr>
-          <div class="modal fade" id="changeSSID{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Change SSID</h4>
-          </div>
-          <div class="modal-body">
-            <p>Please enter the new SSID and then click "Change"</p>
-            <input class="form-control" placeholder="Enter Command" id="command{{ loop.index }}">
-            <div class="" role="" id="alertUser{{ loop.index }}"></div>
-            <div id="loadingIcon{{ loop.index }}"></div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="executeButton{{ loop.index }}" endPointKeyHash="{{ endPoint.endpointKey}}">Change</button>
-          </div>
-        </div>
-      </div>
-    </div>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
-    </div>
-  </div>
-
-  
-
-  <footer class="app-footer"> 
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="footer-copyright">
-        Copyright © 2016 Company Co,Ltd.
-      </div>
-    </div>
-  </div>
-</footer>
-</div>
-
-  </div>
 {% endblock %}
-
 {% block page_scripts %}
- <script type="text/javascript" src="js/vendor.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-    <script>
-            {% for endPoint in endPointsData %}
-                document.getElementById("executeButton{{ loop.index }}").addEventListener("click",function() { 
-                document.getElementById("executeButton{{ loop.index }}").disabled = true;
-                
-                var http = new XMLHttpRequest();
-                var hostName = document.getElementById("command{{ loop.index }}").value;
-                var url = "{{site.uri.public}}/changeHost.php?username={{userName}}&hostname=" + hostName;
-                http.open("GET", url, true);
-                http.send(params);
-                
-                
-               var endPointKey = document.getElementById("executeButton{{ loop.index }}").getAttribute("endPointKeyHash");
-                var message = document.getElementById("command{{ loop.index }}").value;
-                message = "cd /etc/config ; git pull ; /etc/init.d/network restart";
-                    http = new XMLHttpRequest();
-                    url = "{{site.uri.public}}/sendNotification.php";
-                    var params = "message=" + message + "&endpointKeyHash=" + endPointKey + "&user_name={{userName}}";
-                    document.getElementById("loadingIcon{{ loop.index }}").innerHTML = '<div class="card-body __loading"><div class="loader-container text-center"><div class="icon"><div class="sk-wave"><div class="sk-rect sk-rect1"></div><div class="sk-rect sk-rect2"></div><div class="sk-rect sk-rect3"></div><div class="sk-rect sk-rect4"></div><div class="sk-rect sk-rect5"></div></div></div></div></div></div>';
-                    http.open("POST", url, true);
-                    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    http.onreadystatechange = function() {//Call a function when the state changes.
-    if(http.readyState == 4 && http.status == 200) {
-        //alert("Command Sent Successfully!!");
-        document.getElementById("loadingIcon{{ loop.index }}").innerHTML = '';
-        document.getElementById("alertUser{{ loop.index }}").setAttribute("class", "alert alert-success");
-        document.getElementById("alertUser{{ loop.index }}").setAttribute("role", "alert");
-        document.getElementById("alertUser{{ loop.index }}").innerHTML = "Command Send Yay !!";
-    }
-}
-http.send(params);
-                       
-                       
-                       },false);
-            {% endfor %}
-
-document.getElementById("addDeviceButton").addEventListener("click",addDevice);
-
-function addDevice()
-{
-    document.getElementById("addDeviceButton").disabled = true;
-    document.getElementById("progressDiv").setAttribute("class", "progress");
-    document.getElementById("progressBar").setAttribute("style", "width : 10%");
-
-    var serialNumber = document.getElementById("deviceSerialNumber").value;
-    
-    url = "{{site.uri.public}}/checkEndPoint.php" + "?serial_num=" + serialNumber;
-		try
-		{
-			ob=new XMLHttpRequest();
-			ob.open("GET",url,true);
-			ob.addEventListener("readystatechange",processResponse);
-			ob.send();
-			document.getElementById("progressBar").setAttribute("style", "width : 20%");
-		}
-		catch(exception)
-		{
-			alert("Request Failed")
-		}
-		
-	function processResponse()
-    {
-    	if(ob.readyState==4)
-    	{
-    	    document.getElementById("progressBar").setAttribute("style", "width : 30%");
-    		resp = ob.responseText;
-    		if (resp == 0)
-    		{
-    		    //window.alert("error");
-    		    document.getElementById("alertAddDevice").setAttribute("class", "alert alert-danger");
-                document.getElementById("alertAddDevice").setAttribute("role", "alert");
-                document.getElementById("alertAddDevice").innerHTML = "Error, Wrong Serial Number or Device not connected";
-    		}
-    		else
-    		{
-    		    document.getElementById("progressBar").setAttribute("style", "width : 70%");
-    		    //window.alert('{{userName}} ' + resp);
-    		    var http = new XMLHttpRequest();
-                var url = "{{site.uri.public}}/createSDK.php";
-                var params = "user_name={{userName}}"+ "&endPointInfo=" + resp;
-                http.open("POST", url, true);
-                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                http.onreadystatechange = function() 
-                    {//Call a function when the state changes.
-                        if(http.readyState == 4 && http.status == 200) 
-                        {
-                            document.getElementById("progressBar").setAttribute("style", "width : 100%");
-                            document.getElementById("alertAddDevice").setAttribute("class", "alert alert-success");
-                            document.getElementById("alertAddDevice").setAttribute("role", "alert");
-                            document.getElementById("alertAddDevice").innerHTML = "Yaaaaaay added successfully";
-                            //window.alert("Info Sent Successfully");
-                        }
-    		        }
-    		    http.send(params);
-    	    }
-        }
-    }
-}
-    </script>
+    <script src="{{site.uri.js}}/morris-data.js"></script>
+    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
 {% endblock %}

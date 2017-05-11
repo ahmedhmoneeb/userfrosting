@@ -22,12 +22,21 @@
         <title>{{site.site_title}} | {{ page.title }}</title>
         
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="{{site.uri.favicon}}" />
+        <link rel="shortcut icon" href="assets/images/curpha-new.png">
         
         <!-- Page stylesheets -->
-        {% for item in includeCSS(page_group|default("common")) %}
-          <link rel="stylesheet" href="{{item}}" type="text/css" >
-        {% endfor %}
+        <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        
+        <script src="assets/js/modernizr.min.js"></script>
+        
+        <!-- Page stylesheets -->
+        
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

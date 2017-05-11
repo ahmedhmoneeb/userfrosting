@@ -7,173 +7,161 @@
     
     {% set page = page | merge({
         "title"       : "Register",
-        "description" : "Register for a new UserFrosting account.",
+        "description" : "Register for a new Curpha account.",
         "active_page" : "account/register"
     }) %}    
 
     {{ parent() }}
 {% endblock %}
 
-
 {% block content %}
-  <div class="app app-default">
 
-<div class="app-container app-login">
-  <div class="flex-center">
-    <div class="app-header"></div>
-    <div class="app-body">
-      <div class="loader-container text-center">
-          <div class="icon">
-            <div class="sk-folding-cube">
-                <div class="sk-cube1 sk-cube"></div>
-                <div class="sk-cube2 sk-cube"></div>
-                <div class="sk-cube4 sk-cube"></div>
-                <div class="sk-cube3 sk-cube"></div>
-              </div>
-            </div>
-          <div class="title">Logging in...</div>
-      </div>
-      <div class="app-block">
-        <div class="app-right-section">
-          <div class="app-brand"><span class="highlight">Curpha IOT</span> Register</div>
-          <div class="app-info">
-            
-            <ul class="list">
-              <li>
-                <div class="icon">
-                  <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                </div>
-                <div class="title">Increase <b>Productivity</b></div>
-              </li>
-              <li>
-                <div class="icon">
-                  <i class="fa fa-cubes" aria-hidden="true"></i>
-                </div>
-                <div class="title">Lot of <b>Components</b></div>
-              </li>
-              <li>
-                <div class="icon">
-                  <i class="fa fa-usd" aria-hidden="true"></i>
-                </div>
-                <div class="title">Forever <b>Free</b></div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="app-form">
-{% include 'components/common/alerts.twig' %}
-<form name="register" method="post" action="{{site.uri.public}}/account/register" class="form-horizontal">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="form-group">
-                <label class="control-label  col-sm-4">Username</label>
-                <div class="col-sm-8">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-fw fa-edit"></i></span>
-                        <input type="text" class="form-control" name="user_name" autocomplete="off" value="" placeholder="User name">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="form-group">
-                <label class="control-label col-sm-4">Display Name</label>
-                <div class="col-sm-8">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-fw fa-edit"></i></span>
-                        <input type="text" class="form-control" name="display_name" autocomplete="off" value="" placeholder="Display name">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="form-group">
-                <label class="control-label col-sm-4">Email</label>
-                <div class="col-sm-8">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
-                        <input type="text" class="form-control" name="email" placeholder="Email address" value="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>		  
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="form-group">
-                <label class="control-label col-sm-4">Password</label>
-                <div class="col-sm-8">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-fw fa-key"></i></span>
-                        <input type="password" class="form-control" name="password" autocomplete="off" value="" placeholder="8-50 characters">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="form-group">
-                <label class="control-label col-sm-4">Confirm password</label>
-                <div class="col-sm-8">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-fw fa-key"></i></span>
-                        <input type="password" class="form-control" name="passwordc" autocomplete="off" value="" placeholder="Re-enter your password">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% if site.enable_captcha %}
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="form-group">
-                <label class="control-label col-sm-4">Confirm captcha code</label>
-                <div class="col-sm-4">
-                    <div class="input-group"><span class="input-group-addon"><i class="fa fa-fw fa-eye"></i></span>
-                        <input type="text" class="form-control" id="captcha-input" name="captcha" autocomplete="off" value="" placeholder="Organics only!">
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <img src="{{captcha_image}}" id="captcha" data-target="#captcha-input">
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    {% if site.show_terms_on_register %}
-    <div class="row">
-        <div class="col-sm-12">
-             By registering an account with {{site.site_title}}, you accept the <a href="#" data-toggle="modal" data-target="#tos">terms and conditions</a>.
-        </div>
-    </div>
-    {% endif %}
-    <br>
-    <div class="row">
-        <div class="col-sm-12">
-            <div>  
-                <button type="submit" name="btn_register" class="btn btn-success">Register</button>
-            </div>
-        </div>
-    </div>
-    <div class="collapse">
-      <label>Spiderbro: Don't change me bro, I'm tryin'a catch some flies!</label>
-      <input name="spiderbro" id="spiderbro" value="http://"/>
-    </div>          
-</form>
-          <div class="form-line"></div>
-      </div>
-    </div>
-    <div class="app-footer">
-    </div>
-  </div>
-</div>
+<!-- My Register-->
+<div class="account-pages"></div>
+		<div class="clearfix"></div>
+		<div class="wrapper-page">
+			<div class=" card-box">
+				<div class="panel-heading">
+					<h3 class="text-center"> Sign Up to <strong class="text-custom" style="color: #d9534f;">CURPHA</strong> </h3>
+				</div>
+                
+                 {% include 'components/common/alerts.twig' %}
+				<div class="panel-body">
+					<form class="form-horizontal m-t-20" 
+                          name="register" method="post" 
+                          action="{{site.uri.public}}/account/register" />
 
-  </div>
+                      
+                        <!-- User name -->
+						<div class="form-group ">
+							<div class="col-xs-12">
+                                <input type="text" class="form-control" name="user_name" autocomplete="off" value="" placeholder="User name" required="">
+							</div>
+						</div>
+                        
+                        <!-- Display name -->
+						<div class="form-group ">
+							<div class="col-xs-12">
+								<input type="text" class="form-control" name="display_name" autocomplete="off" value="" placeholder="Display name" required="">
+							</div>
+						</div>
+                        
+                        <!-- Email-->
+						<div class="form-group ">
+							<div class="col-xs-12">
+								<input type="email" class="form-control" name="email" placeholder="Email address" value="" required="">
+							</div>
+						</div>
+
+                        <!-- password -->
+						<div class="form-group">
+							<div class="col-xs-12">
+                                <input type="password" class="form-control" name="password" autocomplete="off" value="" placeholder="8-50 characters" required="">
+							</div>
+						</div>
+                        
+                        <!-- Confirm password -->
+						<div class="form-group">
+							<div class="col-xs-12">
+                                <input type="password" class="form-control" name="passwordc" autocomplete="off" value="" placeholder="Re-enter your password" required="">
+							</div>
+						</div>
+
+                        <!-- cptcha -->
+                        {% if site.enable_captcha %}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="captcha-input" name="captcha" autocomplete="off" value="" placeholder="Organics only!">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <img src="{{captcha_image}}" id="captcha" data-target="#captcha-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        <!-- Accept -->
+						<div class="form-group">
+							<div class="col-xs-12">
+								<div class="checkbox checkbox-primary">
+									<input id="checkbox-signup" type="checkbox" checked="checked">
+									<label for="checkbox-signup">I accept <a href="#">Terms and Conditions</a></label>
+								</div>
+							</div>
+						</div>
+                    
+                        <!-- register -->
+						<div class="form-group text-center m-t-40">
+							<div class="col-xs-12">
+                                <button type="submit" 
+                                        name="btn_register" 
+                                        class="btn btn-success btn-pink btn-block text-uppercase waves-effect waves-light">
+                                    Register
+                                </button>
+							</div>
+						</div>
+                        
+                        <div class="collapse">
+                          <label>Spiderbro: Don't change me bro, I'm tryin'a catch some flies!</label>
+                          <input name="spiderbro" id="spiderbro" value="http://"/>
+                        </div>
+						
+                        <!-- API -->
+						<div class="form-group m-t-20 m-b-0">
+							<div class="col-sm-12 text-center">
+								<h4><b>Sign Up with</b></h4>
+							</div>
+						</div>
+						
+						<div class="form-group m-b-0 text-center">
+							<div class="col-sm-12">
+								<button type="button" class="btn btn-facebook waves-effect waves-light m-t-20">
+		                           <i class="fa fa-facebook m-r-5"></i> Facebook
+		                        </button>
+
+		                        <button type="button" class="btn btn-twitter waves-effect waves-light m-t-20">
+		                           <i class="fa fa-twitter m-r-5"></i> Twitter
+		                        </button>
+
+		                        <button type="button" class="btn btn-googleplus waves-effect waves-light m-t-20">
+		                           <i class="fa fa-google-plus m-r-5"></i> Google+
+		                        </button>
+							</div>
+						</div>    
+					
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<p>
+						Already have account?<a href="{{site.uri.public}}/account/login" class="text-primary m-l-5"><b>Sign In</b></a>
+					</p>
+				</div>
+			</div>
+
+		</div>
+
+{% endblock %}
+
+{% block fragments %}
+    <div id="tos" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Terms and Conditions for {{site.site_title}}</h4>
+        </div>
+        <div class="modal-body">
+            {% include 'components/common/tos.twig' %}	
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary">Got it!</button>
+        </div>
+    </div>
 {% endblock %}
 
 {% block page_scripts %} 
@@ -195,26 +183,29 @@
             );
         });    
         
-            // This plugin reloads the captcha in the specified field
-            (function( $ ) {
-                $.fn.captcha = function() {
-                    var field = $(this);
-                    console.log("Reloading captcha");
-                    
-                    var img_src = site['uri']['public'] + "/account/captcha?" + new Date().getTime();
-                    
-                    return $.ajax({  
-                      type: "GET",  
-                      url: img_src,  
-                      dataType: "text"
-                    }).then(function(data, statusText, jqXHR) {  // Pass the deferral back
-                        field.attr('src', data);
-                        var target = field.data('target');
-                        $(target).val("");
-                        return data;
-                    });
-                };
-            }( jQuery ));        
+        // This plugin reloads the captcha in the specified field
+        (function( $ ) {
+            $.fn.captcha = function() {
+                var field = $(this);
+                console.log("Reloading captcha");
+                
+                var img_src = site['uri']['public'] + "/account/captcha?" + new Date().getTime();
+                
+                return $.ajax({  
+                  type: "GET",  
+                  url: img_src,  
+                  dataType: "text"
+                }).then(function(data, statusText, jqXHR) {  // Pass the deferral back
+                    field.attr('src', data);
+                    var target = field.data('target');
+                    $(target).val("");
+                    return data;
+                });
+            };
+        }( jQuery ));        
         
     </script>
 {% endblock %}
+
+
+
