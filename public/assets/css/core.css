@@ -2249,6 +2249,10 @@ body > div.container > div.wrapper-page > div.card-box > div.panel-heading > h3 
     color: #d9534f ;
 }
 
+body > footer {
+    margin-bottom: 2%;
+}
+
 
 
 

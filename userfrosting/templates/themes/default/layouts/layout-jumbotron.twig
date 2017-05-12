@@ -18,7 +18,7 @@
         <meta name="description" content="{{ page.description }}">
         <meta name="author" content="{{ page.author }}">
         <meta name="{{csrf_key}}" content="{{csrf_token}}">
-        <link rel="shortcut icon" href="../assets/images/curpha-new.png">
+        <!--<link rel="shortcut icon" href="../assets/images/curpha-new.png">-->
         
         <title>Curpha | {{ page.title }}</title>
         
@@ -32,7 +32,7 @@
         <!-- Favicon 
         <link rel="icon" type="image/x-icon" href="{{site.uri.favicon}}" />
         -->
-        <link rel="icon" type="image/x-icon" href="assets/images/logo2.png" />
+        <link rel="icon" type="image/x-icon" href="../assets/images/logo2.png" />
         
         <!-- Page stylesheets 
         {% for item in includeCSS(page_group|default("common")) %}
@@ -57,10 +57,7 @@
     {% endblock %}
     <body>
     <div class="container">
-      <!--{% include 'components/jumbotron/main-nav.twig' %}
-      <div class="jumbotron">
         {% block content %}{% endblock %}
-      </div>-->	
     </div> <!-- /container -->
     
     {# This block is for dynamic fragments of code that lie outside of the main DOM #}
@@ -69,11 +66,9 @@
     <footer>
         <div class="container">
           <div class="row">
-              <div class="col-sm-6 text-center">
-                  &copy; <a href="{{site.uri.public}}">Curpha</a>, {{ "now"|date("Y") }}
-              </div>
-              <div class="col-sm-6 text-center">
-                  Built with <a href="#">Curpha</a>.
+              
+              <div class="col-sm-12 text-center">
+                  &copy;2017. All rights reserved.  
               </div>        
           </div>
         </div>

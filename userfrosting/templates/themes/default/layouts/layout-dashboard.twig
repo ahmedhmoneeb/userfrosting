@@ -23,7 +23,7 @@
         <title>Curpha | Dashboard </title>
         
         <!-- Favicon -->
-        <link rel="shortcut icon" href="../assets/images/curpha-new.png">
+        <!--<link rel="shortcut icon" href="../assets/images/curpha-new.png">-->
         
         <!-- Page stylesheets -->
         <link rel="stylesheet" href="assets/plugins/morris/morris.css">
@@ -38,7 +38,7 @@
         <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
         <script src="assets/js/modernizr.min.js"></script>
 
-        <link rel="icon" type="image/x-icon" href="assets/images/logo2.png" />
+        <!--<link rel="icon" type="image/x-icon" href="assets/images/logo2.png" />-->
 
         
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -67,25 +67,11 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo">
-                            <!--<i class="icon-magnet icon-c-logo">
-                            </i>
-                            <span>Ub
-                                <i class="md md-album">
-                                </i>ld
-                            </span>-->
-                            <!--<img src="assets/images/logo_dark.png" />-->
+                        <a href="index.html" class="logo left-logo">
                             <span>
                                 <img src="assets/images/logo_dark.png" height="45"/>
                             </span>
                         </a> 
-                        <!-- Image Logo here -->
-                        <!--<a href="index.html" class="logo">
-                            <i class="icon-c-logo"> 
-                                <img src="assets/images/logo_sm.png" height="42"/> 
-                            </i>
-                            <span><img src="assets/images/logo_light.png" height="20"/></span>
-                        </a>-->
                     </div>
                 </div>
 
@@ -102,7 +88,7 @@
 
                             <ul class="nav navbar-nav hidden-xs">
                                 <li><a href="#" class="waves-effect waves-light">Files</a></li>
-                                <li class="dropdown">
+                                <!--<li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown"
                                        role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span
                                             class="caret"></span></a>
@@ -112,13 +98,23 @@
                                         <li><a href="#">Something else here</a></li>
                                         <li><a href="#">Separated link</a></li>
                                     </ul>
-                                </li>
+                                </li>-->
                             </ul>
 
                             <form role="search" class="navbar-left app-search pull-left hidden-xs">
 			                     <input type="text" placeholder="Search..." class="form-control">
 			                     <a href=""><i class="fa fa-search"></i></a>
 			                </form>
+                            
+                            
+                            
+                                <a href="index.html" class="logo brand hidden-xs">
+                                    <span>
+                                        <img src="assets/images/logo_dark.png" height="45"/>
+                                    </span>
+                                </a> 
+                            
+                            
 
 
                             <ul class="nav navbar-nav navbar-right pull-right">
@@ -259,47 +255,72 @@
             <!-- Top Bar End -->
             
             
+            
             <!-- ========== Left Sidebar Start ========== -->
             <div class="left side-menu" style="position:fixed;">
                 <div class="sidebar-inner slimscrollleft">
                     <!--- Divider -->
                     <div id="sidebar-menu">
                         <ul>
-
-                        	<li class="text-muted menu-title">Navigation</li>
-
+                        	<!--<li class="text-muted menu-title">Navigation</li>-->
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
+                                <a href="{{site.uri.public}}/dashboard" 
+                                   class="waves-effect">
+                                    <i class="ti-home"></i> 
+                                    <span> Dashboard </span> 
+                                    <!--<span class="menu-arrow"></span>-->
+                                </a>
+                                <!--<ul class="list-unstyled">
                                     <li><a href="{{site.uri.public}}/dashboard">Dashboard 1</a></li>
                                     <li>
                                         <a href="{{site.uri.public}}/dashboard">Dashboard 2</a>
                                     </li>
-                                </ul>
+                                </ul>-->
                             </li>
                             
                             <!-- configuration -->
-                            <li class="text-muted menu-title">Configuration</li>
+                            
                             <li class="has_sub">
-                                <a href="{{site.uri.public}}/configure">
-                                    <i class="ti-pencil-alt"></i>
-                                    <span> Configuration </span> 
+                                <a href="javascript:void(0);" >
+                                    <i class=" md-network-wifi"></i>
+                                    <span> Wifi </span> 
+                                    <span class="menu-arrow"></span>
                                 </a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="#">
+                                            Access point
+                                            <span class="menu-arrow"></span>
+                                        </a>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="{{site.uri.public}}/configure">
+                                                Configuration
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{{site.uri.public}}/user">
+                                            Access point 2
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             
 
                             <!-- Users -->
-                            <li class="text-muted menu-title">Users</li>
+                            
                             <li class="has_sub">
                                 <a href="{{site.uri.public}}/zerg">
-                                    <i class="ti-menu-alt"></i>
+                                    <i class=" md-people-outline"></i>
                                     <span> Users </span> 
                                 </a>
                             </li>
                             
                             
                             <!-- monitoring -->
-                            <li class="text-muted menu-title">monitoring </li>
+                            
                             <li class="has_sub">
                                 <a href="{{site.uri.public}}/monitor">
                                     <i class="ti-bar-chart"></i>
@@ -307,11 +328,17 @@
                                 </a>
                             </li>
                             
-                            <!-- help -->
-                            <li class="text-muted menu-title">Help</li>
                             <li class="has_sub">
                                 <a href="{{site.uri.public}}/help">
-                                    <i class="ti-light-bulb"></i>
+                                    <i class="ti-bar-chart"></i>
+                                    <span> monitoring  </span> 
+                                </a>
+                            </li>
+                            
+                            <!-- help -->
+                            <li class="has_sub">
+                                <a href="{{site.uri.public}}/help" class="waves-effect">
+                                    <i class=" ti-help-alt"></i>
                                     <span> Help </span> 
                                 </a>
                             </li>
@@ -475,6 +502,9 @@
         <script>
             var resizefunc = [];
         </script>
+        
+        <!-- make the brand fade toggele -->
+        
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
@@ -519,6 +549,11 @@
             });
         </script>
 
+        <script>
+            $("button.button-menu-mobile").click (function() {
+                $(".brand").fadeToggle( "fast", "linear" );
+            });
+        </script>
 
         
         {# This block allows you to create page-specific Javascript in a child template #}

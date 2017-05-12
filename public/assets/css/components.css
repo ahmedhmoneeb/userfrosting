@@ -2481,6 +2481,34 @@ a.editable-click:hover {
     background-color: blue
 }
 
+body > div.container > div.wrapper-page > div.card-box > div.panel-body > form > div.form-group.text-center.m-t-40 > div > button {
+    background-color: #1aa9cb!important;
+    border: 1px solid #1aa9cb !important;
+}
+
+body > footer {
+    margin-bottom: 2%;
+}
+
+.sign-color {
+    color: #f94c2e;
+}
+a.sign-color:hover {
+    color: #eb624a;
+}
+
+.brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+}
+
+
+
+
+
+
 
 
 

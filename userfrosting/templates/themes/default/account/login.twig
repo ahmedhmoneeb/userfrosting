@@ -23,10 +23,18 @@
     <div class=" card-box">
         <div class="panel-heading">
             <h3 class="text-center"> Sign In to 
-                <strong class="text-custom" style="color: #d9534f;">
+                <strong class="text-custom" style="color: #1aa9cb;">
                     CURPHA
                 </strong>
+                <!--<a href="http://www.curpha.com/" 
+                       class="" 
+                       target="_blank">
+                    <span>
+                        <img src="../assets/images/curpha-logo.png" height="45" width="35%"/>
+                    </span>
+                </a>-->
             </h3>
+            
             {% include 'components/common/alerts.twig' %}
         </div>
         <div class="panel-body">
@@ -109,7 +117,11 @@
     </div>
     <div class="row">
         <div class="col-sm-12 text-center">
-            <p>Don't have an account? <a href="{{site.uri.public}}/account/register" class="text-primary m-l-5"><b>Sign Up</b></a>
+            <p>Don't have an account? 
+                <a href="{{site.uri.public}}/account/register" 
+                   class="text-pink m-l-5 sign-color">
+                    <b>Sign Up</b>
+                </a>
             </p>
 
         </div>

@@ -11,10 +11,18 @@
     {{ parent() }}
 {% endblock %}
 {% block content %}
-    <div class="container text-center">
-        <h1>Error 404</h1>
-        <img class="img-fluid m-b-1 m-x-auto" src="{{site.uri.image}}/fry.png">
-        <br><br>
-        <p class="lead">Either way, click <a href="{{site.uri.public}}">here</a> to return to the front page.</p>
-    </div> <!-- /container -->
+    <div class="account-pages"></div>
+		<div class="clearfix"></div>
+		
+        <div class="wrapper-page">
+            <div class="ex-page-content text-center">
+                <div class="text-error"><span class="text-primary">4</span><i class="ti-face-sad text-pink"></i><span class="text-info">4</span></div>
+                <h2>Who0ps! Page not found</h2><br>
+                <p class="text-muted">This page cannot found or is missing.</p>
+                <p class="text-muted">Use the navigation above or the button below to get back and track.</p>
+                <br>
+                <a class="btn btn-default waves-effect waves-light" href="{{site.uri.public}}/dashboard"> Return Home</a>
+                
+            </div>
+        </div>
 {% endblock %}
