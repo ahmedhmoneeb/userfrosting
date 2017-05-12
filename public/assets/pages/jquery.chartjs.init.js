@@ -105,14 +105,14 @@ File: Chartjs
                 {
                     data: [300, 50, 100],
                     backgroundColor: [
-                        "#5d9cec",
-                        "#5fbeaa",
+                        "#2d3b63",
+                        "#2577b5",
                         "#ebeff2"
                     ],
                     hoverBackgroundColor: [
-                        "#5d9cec",
-                        "#5fbeaa",
-                        "#ebeff2"
+                        "#1d294c",
+                        "#1d5784",
+                        "#ccd3d8"
                     ],
                     hoverBorderColor: "#fff"
                 }]
@@ -132,7 +132,7 @@ File: Chartjs
                     data: [300, 50, 100],
                     backgroundColor: [
                         "#5d9cec",
-                        "#5fbeaa",
+                        "#f1d06d",
                         "#ebeff2"
                     ],
                     hoverBackgroundColor: [
@@ -152,11 +152,11 @@ File: Chartjs
             datasets: [
                 {
                     label: "Sales Analytics",
-                    backgroundColor: "rgba(95, 190, 170, 0.3)",
-                    borderColor: "#5fbeaa",
+                    backgroundColor: "rgba(93, 146, 180, .3)",
+                    borderColor: "#5d92b4",
                     borderWidth: 1,
-                    hoverBackgroundColor: "rgba(95, 190, 170, 0.6)",
-                    hoverBorderColor: "#5fbeaa",
+                    hoverBackgroundColor: "rgba(93, 146, 180, .6)",
+                    hoverBorderColor: "#5d92b4",
                     data: [65, 59, 80, 81, 56, 55, 40,20]
                 }
             ]
@@ -180,12 +180,12 @@ File: Chartjs
                 },
                 {
                     label: "Tablets",
-                    backgroundColor: "rgba(255,99,132,0.2)",
-                    borderColor: "rgba(255,99,132,1)",
-                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    backgroundColor: "rgba(239, 191, 50, .2)",
+                    borderColor: "rgba(239, 191, 50, 1)",
+                    pointBackgroundColor: "rgba(239, 191, 50, 1)",
                     pointBorderColor: "#fff",
                     pointHoverBackgroundColor: "#fff",
-                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                    pointHoverBorderColor: "rgba(239, 191, 50, 1)",
                     data: [28, 48, 40, 19, 96, 27, 100]
                 }
             ]
@@ -202,9 +202,9 @@ File: Chartjs
                     18
                 ],
                 backgroundColor: [
-                    "#5fbeaa",
+                    "#f0ad4e",
                     "#1a2942",
-                    "#5d9cec",
+                    "#5d92b4",
                     "#ebeff2"
                 ],
                 label: 'My dataset', // for legend
