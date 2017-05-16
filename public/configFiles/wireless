@@ -13,4 +13,3 @@ config wifi-iface
 	option mode ap
 	option ssid moneebTest
 	option encryption none
-

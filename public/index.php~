@@ -47,12 +47,7 @@
             $app->alerts->addMessage("success", "Congratulations, you've successfully logged in for the first time.  Please take a moment to customize your site settings.");
             $app->redirect($app->urlFor('uri_settings'));  
         } else {
-            //$app->redirect($app->user->landing_page);        
-            $get = $app->request->get();
-            $controller = new UF\AccountController($app);
-            $twig = $app->view()->getEnvironment();   
-            $loader = $twig->getLoader();
-            return $controller->pageLogin();
+            $app->redirect($app->user->landing_page);        
         }
     })->name('uri_home');
 
