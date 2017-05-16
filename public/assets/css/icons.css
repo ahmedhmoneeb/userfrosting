@@ -6131,9 +6131,7 @@ File: Icons
 .icon-mouse:before {
   content: "\e015";
 }
-.icon-magnet:before {
-  content: "\e016";
-}
+
 .icon-energy:before {
   content: "\e020";
 }

@@ -103,7 +103,7 @@ a:focus {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   bottom: 0px;
   color: #58666e;
-  text-align: left !important;
+  text-align: center !important;
   padding: 20px 30px;
   position: absolute;
   right: 0px;
@@ -1372,7 +1372,7 @@ body.fixed-left .side-menu.left {
   color: #fff !important;
 }
 #sidebar-menu > ul > li > a {
-  color: #e1e1e6;
+  color: #fdfdfd;
   display: block;
   padding: 12px 20px;
   margin: 4px 0px;
