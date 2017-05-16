@@ -39,7 +39,7 @@
         // This is probably where you, the developer, would start making changes if you need to change the default behavior.
         if ($app->user->isGuest()){
             $controller = new UF\AccountController($app);
-            $controller->pageHome();
+            $controller->pageLogin();
         // If this is the first the root user is logging in, take them to site settings
         } else if ($app->user->id == $app->config('user_id_master') && $app->site->install_status == "new"){
             $app->site->install_status = "complete";
@@ -47,12 +47,7 @@
             $app->alerts->addMessage("success", "Congratulations, you've successfully logged in for the first time.  Please take a moment to customize your site settings.");
             $app->redirect($app->urlFor('uri_settings'));  
         } else {
-            //$app->redirect($app->user->landing_page);        
-            $get = $app->request->get();
-            $controller = new UF\AccountController($app);
-            $twig = $app->view()->getEnvironment();   
-            $loader = $twig->getLoader();
-            return $controller->pageLogin();
+            $app->redirect($app->user->landing_page);
         }
     })->name('uri_home');
 
