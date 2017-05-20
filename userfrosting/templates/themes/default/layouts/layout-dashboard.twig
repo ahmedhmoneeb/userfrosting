@@ -37,6 +37,17 @@
         <link rel="stylesheet" href="assets/Users.css" type="text/css" />
         <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
         <script src="assets/js/modernizr.min.js"></script>
+        
+        <style>
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button {
+                -webkit-appearance: none !important;
+                -moz-appearance: none !important;
+                appearance: none !important;
+                margin: 0;
+            }
+        
+        </style>
 
         <!--<link rel="icon" type="image/x-icon" href="assets/images/logo2.png" />-->
 
@@ -361,6 +372,95 @@
                 {% block content %}{% endblock %}
                 
                 
+                <!-- Start Add device -->
+                
+        <div class="row">
+            <div id="con-close-modal"
+            class="modal fade"
+            tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel"
+            aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- header -->
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Add Device</h4>
+                        </div>
+                        <!-- body -->
+                        <div class="modal-body">
+                            
+                            <!-- image -->
+                            <div class="row">
+                              <div class="col-md-12">
+                                <img src="images/serialNumber.PNG" />
+                              </div>
+                            </div>
+                            <!-- serial number -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="field-3" class="control-label">Serial No</label>
+                                        <input type="number" class="form-control"
+                                        id="field-3" placeholder="XXX XXX XXX XXX"
+                                        oninput=
+                                        "javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        maxlength = "12" />
+
+                                    </div>
+                                </div>
+                                <!--<div class="col-md-2">
+                                  <input type="submit"
+                                  class="btn btn-default waves-effect btn-serial"
+                                  disabled value="submit" id="done"  />
+                                  <button type="button"
+                                  class="btn btn-default waves-effect btn-serial"
+                                  id="done" value="submit" disabled>Close</button>
+                                </div>-->
+                            </div>
+                            <!-- progress -->
+                            <div class="row ">
+                                <div class="col-md-10">
+                                      <!-- progress bar -->
+                                      <div class="progress progress-bar-striped "
+                                      data-percent="100" 
+                                           style="display:none;margin-left:20%;" >
+                                          <div></div>
+                                      </div>
+                                </div>
+                            </div><!-- end progress bar -->
+                        </div>
+                        <!-- footer -->
+                        <div class="modal-footer">
+                          <button type="button"
+                          class="btn btn-info waves-effect btn-serial"
+                          id="done" value="submit" disabled>Add</button>
+
+                          <button type="button" class="btn cl btn-info waves-effect"
+                          data-dismiss="modal" >Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div><!-- /.modal -->
+
+            <div class="button-list">
+              <!-- Start Add Button -->
+              <div data-toggle="tooltip" data-placement="top"
+              title="" data-original-title="Add Device" class="test" >
+                <div class="add-new-btn btn btn-primary waves-effect waves-light"
+                      data-toggle="modal"
+                      data-target="#con-close-modal">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                  <!--<i class="material-icons">add</i>-->
+                </div>
+              </div>
+            </div>
+        </div>
+                
+                <!-- End Add Device -->
+                
                 <!-- Right Sidebar -->
                 <div class="side-bar right-bar nicescroll">
                 <h4 class="text-center">Chat</h4>
@@ -552,6 +652,71 @@
             });
         </script>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        <!-- progress bar functions -->
+        <script>
+$(document).ready (function(){
+  /* Show the progress bar */
+  $("#done").click(function(){
+    $(".progress").fadeIn("slow");
+  });
+  /* make the button add disabled */
+  $("#done").click(function(){
+    $(this).prop("disabled", true);
+  });
+
+  /* progress bar function and other callback functions */
+  $("#done").click(function(){
+      var width = $(".progress").children("div").width();
+      width=0;
+      if (width == 0){
+          var percent = $(".progress").data("percent");
+          $(".progress").children("div").width("0%").show().animate({
+              "width": percent + "%"
+          }, {
+              duration: 5000,
+              progress: function(a, p) {
+                  var newPer = Math.round(percent * p);
+                  $(".progress").children("div").html(newPer + "%");
+              },
+
+              complete : function(){
+                $(".progress").fadeOut("slow");
+                $("#done").prop("disabled", true);
+                   $(".cl").html("Done");
+                   $("#field-3").val('');
+              }
+          });
+      }
+  });
+
+});
+      </script>
+
+        <!-- input functions  -->
+        <script>
+          $(document).ready(function() {
+             $('#done').prop('disabled', true);
+             $('#field-3').keyup(function() {
+                if($(this).val().length==12) {
+                   $('#done').prop('disabled', false);
+                }else {
+                  $('#done').prop('disabled', true)
+                }
+             });
+          });
+          /*$(document).ready(function(){
+
+            $("#field-3").on("keyup blur", function(){
+                var user_input = document.getElementById('field-3').value;
+                if( user_input.length== 12 ){
+                  $("#done").removeAttr("disabled");
+                }
+           });
+
+         });*/
+        </script>
         
         {# This block allows you to create page-specific Javascript in a child template #}
         {% block page_scripts %}{% endblock %}        

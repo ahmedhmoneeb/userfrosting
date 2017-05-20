@@ -2505,6 +2505,107 @@ a.sign-color:hover {
 }
 
 
+/**** Start Add Device ****/
+/* Start Add Button */
+.add-new-btn {
+  position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #FF4081;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 53px;
+    width: 53px;
+    border-radius: 100em;
+    z-index: 9001;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+    transition: all 500ms ease-in-out;
+}
+.add-new-btn:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+    background: #FF60A1;
+    cursor: pointer;
+  }
+  .test {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 53px;
+    width: 53px;
+    z-index: 900;
+  }
+
+
+  
+
+/* Serial Number */
+#con-close-modal > div > div > div.modal-body > div:nth-child(2) > div.col-md-2 {
+  margin-top: 5%;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+/*#done input[type=submit]:disabled {
+  background: black;
+  color: #fff;
+}
+html input[disabled] {
+  background: blue;
+  color:#fff;
+  background: transparent;
+  border: 1px solid transparent;
+    border: 1px solid #adc2c7 !important;
+}
+#done input[type="submit"] {
+  background-color: red;
+}
+#done {
+    background: red !important;
+}
+#done btn[disabled] {
+    border: 1px solid #adc2c7 !important;
+}
+button[disabled], html input[disabled] {
+    border: 1px solid #adc2c7 !important
+}*/
+
+
+/* progress */
+.progress {
+    width: 80%;
+    height: 30px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress > div {
+    width: 0%;
+    height: 100%;
+    background: #1C90F3;
+    color: #fff;
+    display: none;
+    font-family: tahoma;
+    line-height: 30px;
+    text-align: center;
+}
+.clicked {
+  background-color: yellow;
+}
+
+/**** End Add Device ****/
+
+
 
 
 
