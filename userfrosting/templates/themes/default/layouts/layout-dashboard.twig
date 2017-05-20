@@ -372,8 +372,7 @@
                 {% block content %}{% endblock %}
                 
                 
-                <!-- Start Add device -->
-                
+        <!-- Start Add device -->
         <div class="row">
             <div id="con-close-modal"
             class="modal fade"
@@ -391,19 +390,15 @@
                         <!-- body -->
                         <div class="modal-body">
                             
-                            <!-- image -->
-                            <div class="row">
-                              <div class="col-md-12">
-                                <img src="images/serialNumber.PNG" />
-                              </div>
-                            </div>
+                            
                             <!-- serial number -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="field-3" class="control-label">Serial No</label>
+                                        <label for="field-3" class="control-label">Serial Number</label>
                                         <input type="number" class="form-control"
-                                        id="field-3" placeholder="XXX XXX XXX XXX"
+                                        id="field-3" 
+                                               placeholder="Please enter your Serial number ( 12 digits ) "
                                         oninput=
                                         "javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                         maxlength = "12" />
@@ -418,18 +413,24 @@
                                   class="btn btn-default waves-effect btn-serial"
                                   id="done" value="submit" disabled>Close</button>
                                 </div>-->
-                            </div>
+                            </div><!-- End Serial Number -->
                             <!-- progress -->
                             <div class="row ">
                                 <div class="col-md-10">
-                                      <!-- progress bar -->
-                                      <div class="progress progress-bar-striped "
-                                      data-percent="100" 
-                                           style="display:none;margin-left:20%;" >
-                                          <div></div>
-                                      </div>
+                                  <!-- progress bar -->
+                                  <div class="progress progress-bar-striped "
+                                  data-percent="100" 
+                                       style="display:none;margin-left:20%;" >
+                                      <div></div>
+                                  </div>
                                 </div>
                             </div><!-- end progress bar -->
+                            <!-- image -->
+                            <div class="row" style="margin-top:5%;">
+                              <div class="col-md-12">
+                                <img src="images/serialNumber.PNG" />
+                              </div>
+                            </div><!-- End Image Row -->
                         </div>
                         <!-- footer -->
                         <div class="modal-footer">
@@ -652,7 +653,7 @@
             });
         </script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        
 
         <!-- progress bar functions -->
         <script>
