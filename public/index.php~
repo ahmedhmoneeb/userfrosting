@@ -38,14 +38,8 @@
         // Forward to the user's landing page (if logged in), otherwise take them to the home page
         // This is probably where you, the developer, would start making changes if you need to change the default behavior.
         if ($app->user->isGuest()){
-            //$get = $app->request->get();
-            //$twig = $app->view()->getEnvironment();   
-            //$loader = $twig->getLoader();
-            //$controller = new UF\AccountController($app);
-            //$controller = new UF\AccountController($app);
-            //$controller->pageLogin();
-            //return $controller->pageLogin();
-            $app->redirect($app->site->uri['public'] . "/account/login");
+            $controller = new UF\AccountController($app);
+            $controller->pageLogin();
         // If this is the first the root user is logging in, take them to site settings
         } else if ($app->user->id == $app->config('user_id_master') && $app->site->install_status == "new"){
             $app->site->install_status = "complete";
