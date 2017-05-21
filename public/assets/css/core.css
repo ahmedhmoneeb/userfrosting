@@ -2252,6 +2252,30 @@ body > div.container > div.wrapper-page > div.card-box > div.panel-heading > h3 
 body > footer {
     margin-bottom: 2%;
 }
+/* End edits */
+
+
+/*** Login & Register Edit ***/
+#userfrosting-alerts > .alert-danger {
+    color : #eb624a;
+    background-color: hsla(9, 80%, 61%, .2);
+    border-color: rgba(235, 98, 74, .3);
+}
+
+.has-success .form-control {
+    border-color: #505458;
+}
+.has-success .form-control-feedback {
+    color: #505458;
+}
+
+/*** // Login & register Edit ***/
+
+
+
+
+
+
 
 
 

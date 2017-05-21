@@ -2481,9 +2481,19 @@ a.editable-click:hover {
     background-color: blue
 }
 
-body > div.container > div.wrapper-page > div.card-box > div.panel-body > form > div.form-group.text-center.m-t-40 > div > button {
+body  > div.wrapper-page > div.card-box > div.panel-body > form > div.form-group.text-center.m-t-40 > div > button {
     background-color: #1aa9cb!important;
     border: 1px solid #1aa9cb !important;
+}
+
+body  > div.wrapper-page > div.card-box > div.panel-body > form > div.form-group.text-center.m-t-40 > div > button:hover {
+    background-color: #36b9d8!important;
+    border: 1px solid #36b9d8    !important;
+}
+    
+
+body > footer > div > div > div {
+    color: #505458;
 }
 
 body > footer {
@@ -2604,8 +2614,6 @@ button[disabled], html input[disabled] {
 }
 
 /**** End Add Device ****/
-
-
 
 
 

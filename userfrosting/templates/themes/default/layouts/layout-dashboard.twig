@@ -374,6 +374,8 @@
                 
         <!-- Start Add device -->
         <div class="row">
+            
+            <!-- Start Serial Number Model Content -->
             <div id="con-close-modal"
             class="modal fade"
             tabindex="-1" role="dialog"
@@ -426,7 +428,7 @@
                                 </div>
                             </div><!-- end progress bar -->
                             <!-- image -->
-                            <div class="row" style="margin-top:5%;">
+                            <div class="row" style="margin-top:6%;">
                               <div class="col-md-12">
                                 <img src="images/serialNumber.PNG" />
                               </div>
@@ -444,10 +446,11 @@
 
                     </div>
                 </div>
-            </div><!-- /.modal -->
+            </div>
+            <!-- End Serial Number Model Content -->
 
+            <!-- Start Button Add -->
             <div class="button-list">
-              <!-- Start Add Button -->
               <div data-toggle="tooltip" data-placement="top"
               title="" data-original-title="Add Device" class="test" >
                 <div class="add-new-btn btn btn-primary waves-effect waves-light"
@@ -458,6 +461,8 @@
                 </div>
               </div>
             </div>
+            <!-- End Button Add -->
+            
         </div>
                 
                 <!-- End Add Device -->
@@ -654,70 +659,61 @@
         </script>
 
         
+<!-- Strat Add Dvice js -->
+    <!-- progress bar functions -->
+    <script>
+        $(document).ready (function(){
+          /* Show the progress bar */
+          $("#done").click(function(){
+            $(".progress").fadeIn("slow");
+          });
+          /* make the button add disabled */
+          $("#done").click(function(){
+            $(this).prop("disabled", true);
+          });
 
-        <!-- progress bar functions -->
-        <script>
-$(document).ready (function(){
-  /* Show the progress bar */
-  $("#done").click(function(){
-    $(".progress").fadeIn("slow");
-  });
-  /* make the button add disabled */
-  $("#done").click(function(){
-    $(this).prop("disabled", true);
-  });
+          /* progress bar function and other callback functions */
+          $("#done").click(function(){
+              var width = $(".progress").children("div").width();
+              width=0;
+              if (width == 0){
+                  var percent = $(".progress").data("percent");
+                  $(".progress").children("div").width("0%").show().animate({
+                      "width": percent + "%"
+                  }, {
+                      duration: 5000,
+                      progress: function(a, p) {
+                          var newPer = Math.round(percent * p);
+                          $(".progress").children("div").html(newPer + "%");
+                      },
 
-  /* progress bar function and other callback functions */
-  $("#done").click(function(){
-      var width = $(".progress").children("div").width();
-      width=0;
-      if (width == 0){
-          var percent = $(".progress").data("percent");
-          $(".progress").children("div").width("0%").show().animate({
-              "width": percent + "%"
-          }, {
-              duration: 5000,
-              progress: function(a, p) {
-                  var newPer = Math.round(percent * p);
-                  $(".progress").children("div").html(newPer + "%");
-              },
-
-              complete : function(){
-                $(".progress").fadeOut("slow");
-                $("#done").prop("disabled", true);
-                   $(".cl").html("Done");
-                   $("#field-3").val('');
+                      complete : function(){
+                        $(".progress").fadeOut("slow");
+                        $("#done").prop("disabled", true);
+                           $(".cl").html("Done");
+                           $("#field-3").val('');
+                      }
+                  });
               }
           });
-      }
-  });
 
-});
-      </script>
+        });
+    </script>
 
-        <!-- input functions  -->
-        <script>
-          $(document).ready(function() {
-             $('#done').prop('disabled', true);
-             $('#field-3').keyup(function() {
-                if($(this).val().length==12) {
-                   $('#done').prop('disabled', false);
-                }else {
-                  $('#done').prop('disabled', true)
-                }
-             });
-          });
-          /*$(document).ready(function(){
-
-            $("#field-3").on("keyup blur", function(){
-                var user_input = document.getElementById('field-3').value;
-                if( user_input.length== 12 ){
-                  $("#done").removeAttr("disabled");
-                }
-           });
-
-         });*/
-        </script>
+    <!-- input functions  -->
+    <script>
+      $(document).ready(function() {
+         $('#done').prop('disabled', true);
+         $('#field-3').keyup(function() {
+            if($(this).val().length==12) {
+               $('#done').prop('disabled', false);
+            }else {
+              $('#done').prop('disabled', true)
+            }
+         });
+      });
+    </script>
+<!-- End Add Device js -->
         
         {# This block allows you to create page-specific Javascript in a child template #}
         {% block page_scripts %}{% endblock %}        
